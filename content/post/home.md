@@ -1,5 +1,6 @@
 +++
 date = "2016-09-23T12:21:49+01:00"
+draft = false
 title = "ES6 New Features overview"
 
 +++

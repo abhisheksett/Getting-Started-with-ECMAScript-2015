@@ -1,6 +1,7 @@
 +++
 date = "2016-09-23T11:56:13+01:00"
 title = "Arrow Function"
+draft = false
 
 +++
 

@@ -1,6 +1,8 @@
 +++
 date = "2016-09-23T11:53:50+01:00"
 title = "Block Scoping"
+draft = false
+
 
 +++
 
