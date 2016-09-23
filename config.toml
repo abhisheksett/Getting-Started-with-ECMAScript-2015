@@ -1,0 +1,46 @@
+baseurl = "http://replace-this-with-your-hugo-site.com/"
+languageCode = "en-us"
+title = "ES6 Features"
+theme = "blackburn"
+
+[params]
+  # Shown in the home page
+  subtitle = "5 new EcmaScript 2015 features"
+  brand = "ES6 Features"
+
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "Home"
+    pre = ""
+    weight = 0
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "Arrow function"
+    pre = ""
+    weight = 1
+    identifier = "arrowFunction"
+    url = "/post/arrowFunction/"
+  [[menu.main]]
+    name = "Modules"
+    pre = ""
+    weight = 2
+    identifier = "Modules"
+    url = "/post/Modules/"
+  [[menu.main]]
+    name = "Promises"
+    pre = ""
+    weight = 3
+    identifier = "Promises"
+    url = "/post/Promises/"
+  [[menu.main]]
+    name = "Block Scoping"
+    pre = ""
+    weight = 4
+    url = "/post/blockScoping/"
+  [[menu.main]]
+    name = "Classes"
+    pre = ""
+    weight = 5
+    url = "/post/classes/"
