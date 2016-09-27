@@ -7,6 +7,7 @@ theme = "blackburn"
   # Shown in the home page
   subtitle = "5 new EcmaScript 2015 features"
   brand = "ES6 Features"
+  custom_css = ["css/custom_style.css"]
 
 [menu]
   # Shown in the side menu.
