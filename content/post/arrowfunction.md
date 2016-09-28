@@ -4,6 +4,10 @@ title = "Arrow Function"
 draft = false
 
 +++
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
 <p class='custom-heading'>What is this?</p>
 
 Arrow functions – also called <highlight>“fat arrow”</highlight> functions, from CoffeeScript (a transcompiled language) are a more concise syntax for writing function expressions. They utilize a new token, <highlight>=></highlight>, that looks like a fat arrow. Arrow functions are anonymous and change the way this binds in functions.
