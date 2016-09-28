@@ -1,4 +1,4 @@
-baseurl = "http://replace-this-with-your-hugo-site.com/"
+baseurl = "http://ecmascript2015.herokuapp.com//"
 languageCode = "en-us"
 title = "ES6 Features"
 theme = "blackburn"
