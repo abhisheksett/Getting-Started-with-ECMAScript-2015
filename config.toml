@@ -1,4 +1,4 @@
-baseurl = "http://ecmascript2015.herokuapp.com//"
+baseurl = "https://ecmascript2015.herokuapp.com/"
 languageCode = "en-us"
 title = "ES6 Features"
 theme = "blackburn"
