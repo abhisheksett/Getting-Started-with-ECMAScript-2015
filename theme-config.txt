@@ -3,3 +3,15 @@ Run following commands from project root folder
 mkdir themes
 cd themes
 git clone https://github.com/yoshiharuyamashita/blackburn.git
+
+
+##Configure Blackburn with highlight.js
+
+1. Go to: themes/blackburn/layout/partials/head.html
+2. Add following 3 lines after default <link> tag-
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+Refer to: https://highlightjs.org/static/demo/ for more styles
