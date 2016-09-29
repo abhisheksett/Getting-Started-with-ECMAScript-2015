@@ -15,3 +15,11 @@ git clone https://github.com/yoshiharuyamashita/blackburn.git
     <script>hljs.initHighlightingOnLoad();</script>
 
 Refer to: https://highlightjs.org/static/demo/ for more styles
+
+
+##Host in herokuapp
+
+heroku login
+heroku create --buildpack https://github.com/roperzh/heroku-buildpack-hugo.git
+git push heroku master
+heroku open
