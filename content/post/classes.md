@@ -117,12 +117,12 @@ class AvengersMember {
     this.actor = actor;
     this.role = role;
   }
-}
-describeRole() {
-  console.log(\`${this.actor} played role of ${this.role} in Avengers\`);
-}
-static defaultRole() {
-  console.log(\`Chris Evans played role of Captain America in Avengers\`);
+  describeRole() {
+    console.log(\`${this.actor} played role of ${this.role} in Avengers\`);
+  }
+  static defaultRole() {
+    console.log("Chris Evans played role of Captain America in Avengers");
+  }
 }
 AvengersMember.defaultRole();
 //Output
