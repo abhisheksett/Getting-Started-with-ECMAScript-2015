@@ -4,6 +4,7 @@ title = "Arrow Function"
 draft = false
 
 +++
+
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
@@ -13,6 +14,8 @@ draft = false
 Arrow functions – also called <highlight>“fat arrow”</highlight> functions, from CoffeeScript (a transcompiled language) are a more concise syntax for writing function expressions. They utilize a new token, <highlight>=></highlight>, that looks like a fat arrow. Arrow functions are anonymous and change the way this binds in functions.
 
 Arrow functions make our code more concise, and simplify function scoping and the this keyword. They are one-line mini functions which work much like Lambdas in other languages like C# or Python. By using arrow function we avoid having to type the function keyword, return keyword (it’s implicit in arrow functions), and curly brackets.
+
+An arrow function expression has a shorter syntax compared to function expressions and does not bind its own <highlight>this</highlight>, <highlight>arguments</highlight>, <highlight>super</highlight>, or <highlight>new.target</highlight>. Arrow functions are always anonymous. These function expressions are best suited for non-method functions and they can not be used as constructors.
 
 <p class='custom-heading'>How to use it?</p>
 
@@ -68,3 +71,11 @@ tmp.likes();
 <p class='custom-heading'>Try it out here:</p>
 
 https://jsfiddle.net/vxh0kmpy/
+
+<p class='custom-heading'>Exercise:</p>
+
+Go to the following link and try to resolve all the errors in ES6 way.
+
+http://tddbin.com/#?kata=es6/language/arrow-functions/basics
+
+http://tddbin.com/#?kata=es6/language/arrow-functions/binding

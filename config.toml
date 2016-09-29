@@ -22,8 +22,7 @@ canonifyurls = true
     name = "Arrow function"
     pre = ""
     weight = 1
-    identifier = "arrowFunction"
-    url = "/post/arrowFunction/"
+    url = "/post/arrow/"
   [[menu.main]]
     name = "Modules"
     pre = ""
