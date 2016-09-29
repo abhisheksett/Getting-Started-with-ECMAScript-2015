@@ -61,8 +61,9 @@ var Vehicle = class {
 <p class='custom-heading'>How to use it?</p>
 
 Before going for example, there is an important note:
-The <highlight>constructor</highlight> method is a special method for creating and initializing an object created with a class. There can only be one special method with the name <highlight>"constructor"</highlight> in a class. A SyntaxError will be thrown if the class contains more than one occurrence of a constructor method.
-
+<div class='info'>
+The <b>constructor</b> method is a special method for creating and initializing an object created with a class. There can only be one special method with the name <b>"constructor"</b> in a class. A SyntaxError will be thrown if the class contains more than one occurrence of a constructor method.
+</div>
 Here is an complete example of class with inheritance:
 
 <pre>

@@ -33,17 +33,26 @@ highlight{
   border-radius: 4px;
 }
 
-.warning{
+.info, .success, .warning, .error, .validation {
   border: 1px solid;
   margin: 10px 0px;
   padding:15px 10px 15px 10px;
-  font-family: 'Droid serif', serif;
   background-repeat: no-repeat;
   background-position: 10px center;
-  color: #9F6000;
-  text-align: left;
-  background-color: #FEEFB3;
+  font-family: 'Droid serif', serif;
   font-size: 15px;
   font-weight: 400;
   font-style: italic;
+  text-align: left;
+}
+
+.warning{
+  color: #9F6000;
+  background-color: #FEEFB3;
+
+}
+
+.info{
+  color: #00529B;
+  background-color: #BDE5F8;
 }
