@@ -45,3 +45,8 @@ canonifyurls = true
     pre = ""
     weight = 5
     url = "/post/classes/"
+  [[menu.main]]
+    name = "Generator"
+    pre = ""
+    weight = 6
+    url = "/post/generator/"
