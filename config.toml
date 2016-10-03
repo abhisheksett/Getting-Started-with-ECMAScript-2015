@@ -45,8 +45,13 @@ canonifyurls = true
     pre = ""
     weight = 5
     url = "/post/classes/"
-    [[menu.main]]
-      name = "Template Strings"
-      pre = ""
-      weight = 6
-      url = "/post/templatestring/"
+  [[menu.main]]
+    name = "Template Strings"
+    pre = ""
+    weight = 6
+    url = "/post/templatestring/"
+  [[menu.main]]
+    name = "Destructuring"
+    pre = ""
+    weight = 7
+    url = "/post/destructuring/"
