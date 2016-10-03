@@ -50,3 +50,13 @@ canonifyurls = true
     pre = ""
     weight = 6
     url = "/post/generator/"
+    [[menu.main]]
+    name = "Template Strings"
+    pre = ""
+    weight = 7
+    url = "/post/templatestring/"
+  [[menu.main]]
+    name = "Destructuring"
+    pre = ""
+    weight = 8
+    url = "/post/destructuring/"
