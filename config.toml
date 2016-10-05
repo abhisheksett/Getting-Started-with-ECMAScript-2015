@@ -60,3 +60,8 @@ canonifyurls = true
     pre = ""
     weight = 8
     url = "/post/destructuring/"
+  [[menu.main]]
+    name = "Spread Operators"
+    pre = ""
+    weight = 9
+    url = "/post/spreadoperator/"
