@@ -124,6 +124,56 @@ Async code terminated //Gets called after few seconds
 </code>
 </pre>
 
+<p class='custom-sub-heading'>Working with multiple promises</p>
+
+Sometimes we're working with multiple Promises and we need to be able to start our processing when all of them are fulfilled. This is where <highlight>Promise.all()</highlight> comes in. Promise.all() takes an array of Promises and once all of them are fulfilled it fulfills its returned Promise with an array of their fulfilled values.
+
+For example, let's say we have a function wrapper around jQuery's .getJSON() method to fetch JSON results from a url which returns a Promise.
+
+<pre>
+<code class="language-javascript">
+var fetchJSON = function(url) {  
+  return new Promise((resolve, reject) => {
+    $.getJSON(url)
+      .done((json) => resolve(json))
+      .fail((xhr, status, err) => reject(status + err.message));
+  });
+}
+</code>
+</pre>
+
+Now we can setup an array of promises which will fulfill with the JSON results of fetching the response from each of the urls in our itemUrls array. Promise.all() will not fulfill until all the Promises in the array have fulfilled. If any of those promises are rejected (or throw an exception) then the Promise.all() Promise will reject and the .catch() below will be triggered.
+
+<pre>
+<code class="language-javascript">
+var itemUrls = {  
+    'http://www.api.com/items/1234',
+    'http://www.api.com/items/4567'
+  },
+  itemPromises = itemUrls.map(fetchJSON);
+
+  Promise.all(itemPromises)  
+  .then(function(results) {
+     // we only get here if ALL promises fulfill
+     results.forEach(function(item) {
+       // process item
+     });
+  })
+  .catch(function(err) {
+    // Will catch failure of first failed promise
+    console.log("Failed:", err);
+  });
+</code>
+</pre>
+
+<div class="warning">
+Keep in mind, a failure (rejection or thrown exception) of any of the Promises in the array passed to Promise.all() will cause the Promise it returns to be rejected.
+</div>
+
+<div class="info">
+Sometimes, we don't need to wait on all the Promises in our array; but we simply want to get the results of the first Promise in the array to fulfill. We can do this with <highlight>Promise.race()</highlight>, which, like Promise.all(), takes an array of promises; but unlike Promise.all() will fulfill its returned Promise as soon as the first Promise in that array fulfills.
+</div>
+
 <p class='custom-heading'>Try it out here:</p>
 
 https://jsfiddle.net/r594gt5h/2/
