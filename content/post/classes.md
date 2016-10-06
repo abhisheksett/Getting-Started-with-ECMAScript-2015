@@ -42,7 +42,7 @@ class Vehicle {}
 </code>
 </pre>
 
-<p class='custom-sub-heading'>Class declarations</p>
+<p class='custom-sub-heading'>Class expression</p>
 
 A class expression is another way to define a class. Class expressions can be named or unnamed. The name given to a named class expression is local to the class's body. Example:
 

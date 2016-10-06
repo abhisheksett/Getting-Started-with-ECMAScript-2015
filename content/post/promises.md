@@ -5,57 +5,134 @@ draft = false
 
 +++
 
-Promises
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-Promises provide a mechanism to handle the results and errors from asynchronous operations.  You can accomplish the same thing with callbacks, but promises provide improved readability via method chaining and succinct error handling.  Promises are currently used in many JavaScript libraries.  RSVP.js, Q.js, and the $q service in Angular are just a few of many examples.  Here is an example from the RSVP.js docs:
+<p class='custom-heading'>What is this?</p>
 
-getJSON("/api/employee/1").then(function(post) {
-  return getJSON(post.commentURL);
-}).then(function(comments) {  //you could chain multiple then statements
-  // proceed with access to employee
-}).catch(function(error) { //succinct error handling
-  // handle errors in either of the two requests
+Promises give us a way to handle asynchronous processing in a more synchronous fashion. They represent a value that we can handle at some point in the future. And, better than callbacks here, Promises give us guarantees about that future value, specifically:
+
+<ol>
+  <li>No other registered handlers of that value can change it (<i>the Promise is immutable</i>)</li>
+  <li>We are guaranteed to receive the value, regardless of when we register a handler for it, even if it's already resolved (<i>in contrast to events, which can incur race conditions</i>).</li>
+</ol>
+
+<p class='custom-sub-heading'>How to create a promise</p>
+
+The standard way to create a Promise is by using the new Promise constructor which accepts a handler that is given two functions as parameters. The first handler (<i>typically named <highlight>resolve</highlight></i>) is a function to call with the future value when it's ready; and the second handler (<i>typically named <highlight>reject</highlight></i>) is a function to call to reject the Promise if it can't resolve the future value.
+
+For Example:
+
+<pre>
+<code class="language-javascript">
+var p = new Promise(function(resolve, reject) {  
+   if (/* condition */) {
+      resolve(/* value */);  // fulfilled successfully
+   }
+   else {
+      reject(/* reason */);  // error, rejected
+   }
 });
+</code>
+</pre>
 
-You can also wait for all promises to complete:
+A Promise is in one of these states:
 
-var promises = [2, 3, 5, 7, 11, 13].map(function(id){
-  return getJSON("/post/" + id + ".json");
-});
+<ul>
+  <li><i><highlight>pending:</highlight></i> initial state, not fulfilled or rejected.
+  <li><i><highlight>fulfilled:</highlight></i> meaning that the operation completed successfully.
+  <li><i><highlight>rejected:</highlight></i> meaning that the operation failed.
+</ul>
 
-RSVP.all(promises).then(function(posts) {
-  // posts contains an array of results for the given promises
-}).catch(function(reason){
-  // if any of the promises fails.
-});
+A pending promise can either be fulfilled with a value, or rejected with a reason (error). When either of these happens, the associated handlers queued up by a promise's then method are called. (If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached.)
 
-This pattern will look familiar to those who have written multithreaded C# code (the last example is like the WaitHandle::WaitAll method).  Unfortunately, each library has a slightly different implementation.  It’s confusing to fully grok the Q.js library only to find that the Angular $q service only provides a subset of the same functionality.  ES6 will standardize promises and remove the external dependencies currently required to use promises.  Below is a partial list and description of some of the ES6 promise functionality.  Read more ES6 promises here.
-Promise.resolve(value)
+Here is the idea of a promise:
 
-I can’t describe it any better than the Mozilla docs: Returns a Promise object that is resolved with the given value. If the value is a thenable (i.e. has a then method), the returned promise will “follow” that thenable, adopting its eventual state; otherwise the returned promise will be fulfilled with the value.
-Promise.cast(value)
+<img src="/img/promises.png" />
 
-This method is really useful if you are dealing with existing functions or services that don’t return a promise.  If the value passed in is a promise, cast returns the value, otherwise the value is coerced to a promise.  Either way, you can deal with the result as a promise.
-Promise.race(iterable)
+<p class='custom-sub-heading'>How to use a promise</p>
 
-Promise.race returns the first promise in the iterable to resolve. Note the use of arrow functions. 🙂
+Once we have a Promise, it can be passed around as a value. The Promise is a stand-in for a future value; and so it can be returned from a function, passed as a parameter and used in any other way a standard value would be used.
 
-http://www.es6fiddle.net/hruy6vlb/
+To consume the Promise - meaning we want to process the Promises value once fulfilled - we attach a handler to the Promise using it's .then() method. This method takes a function that will be passed the resolved value of the Promise once it is fulfilled.
 
-var p1 = new Promise((resolve, reject) => setTimeout(resolve, 400, "one"));
-var p2 = new Promise((resolve, reject) => setTimeout(resolve, 200, "two"));
-Promise.race([p1, p2]).then(function(value) {
-    console.log(value); //two
-});
+<pre>
+<code class="language-javascript">
+var p = new Promise((resolve, reject) => resolve(5));  
+p.then((val) => console.log(val)); // 5  
+</code>
+</pre>
 
-Promise.all(iterable)
+A Promise's .then() method actually takes two possible parameters. The first is the function to be called when the Promise is fulfilled and the second is a function to be called if the Promise is rejected.
 
-The Promise.all method returns a promise when all promises in the iterable have completed.
+<pre>
+<code class="language-javascript">
+p.then((val) => console.log("fulfilled:", val),  
+       (err) => console.log("rejected: ", err));  
+</code>
+</pre>
 
-http://www.es6fiddle.net/hruyss3j/
+<p class='custom-heading'>Example</p>
 
-var p1 = new Promise((resolve, reject) => setTimeout(resolve, 400, "one"));
-var p2 = new Promise((resolve, reject) => setTimeout(resolve, 200, "two"));
-Promise.all([p1, p2]).then(function(value) {
-    console.log(value); //one, two
-});
+<pre>
+<code class="language-javascript">
+'use strict';
+var promiseCount = 0;
+
+(function() {
+    var thisPromiseCount = ++promiseCount;
+
+    document.getElementById('output').innerHTML += `Sync code started\n`;
+
+    // We make a new promise: we promise a numeric count of this promise, starting from 1 (after waiting 3s)
+    var p1 = new Promise(
+        // The resolver function is called with the ability to resolve or
+        // reject the promise
+        function(resolve, reject) {
+            document.getElementById('output').innerHTML += `Async code started\n`;
+            // This is only an example to create asynchronism
+            window.setTimeout(
+                function() {
+                    // We fulfill the promise !
+                    resolve(thisPromiseCount);
+                }, Math.random() * 2000 + 1000);
+        }
+    );
+
+    // We define what to do when the promise is resolved/fulfilled with the then() call,
+    // and the catch() method defines what to do if the promise is rejected.
+    p1.then(
+        // Log the fulfillment value
+        function(val) {
+            document.getElementById('output').innerHTML += `Async code terminated\n`;
+        })
+    .catch(
+        // Log the rejection reason
+        function(reason) {
+            document.getElementById('output').innerHTML += `Handle rejected promise ${reason} here\n`;
+        });
+
+    document.getElementById('output').innerHTML += `Sync code terminated\n`;
+})();
+
+//Output
+Sync code started
+Async code started
+Sync code terminated
+Async code terminated //Gets called after few seconds
+</code>
+</pre>
+
+<p class='custom-heading'>Try it out here:</p>
+
+https://jsfiddle.net/r594gt5h/2/
+
+<p class='custom-heading'>Exercise:</p>
+
+Go to the following link and try to resolve all the errors in ES6 way.
+
+http://tddbin.com/#?kata=es6/language/promise/creation <br/>
+http://tddbin.com/#?kata=es6/language/promise/chaining-then <br/>
+http://tddbin.com/#?kata=es6/language/promise/api <br/>
+http://tddbin.com/#?kata=es6/language/promise/catch <br/>
