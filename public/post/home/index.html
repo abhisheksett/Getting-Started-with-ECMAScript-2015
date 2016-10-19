@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16" />
+
+  <title>ES6 New Features overview &middot; ES6 Features</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="https://ecmascript2015.herokuapp.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/custom_style.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://ecmascript2015.herokuapp.com/">ES6 Features</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/">Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/arrow/">Arrow function</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/modules/">Modules</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/promises/">Promises</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/blockscoping/">Block Scoping</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/classes/">Classes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/generator/">Generator</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/templatestring/">Template Strings</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/destructuring/">Destructuring</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/spreadoperator/">Spread Operators</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>ES6 New Features overview</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>23 Sep 2016, 12:21</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  <p>EcmaScript is the standardized scripting language that JavaScript (and some other languages, like ActionScript) implement.  If you think EcmaScript is a terrible name, you’re not alone.  Brendan Eich, the original developer of JavaScript, once wrote that the name EcmaScript sounds like a skin disease.  Naming aside, JavaScript is one of the most important languages in existence today.  Every browser has a JavaScript interpreter, JavaScript on the server is becoming ever more popular, and now it’s possible to use JavaScript for desktop (Chrome Apps), nativish mobile (PhoneGap) and native Windows 8 apps.  A new version of EcmaScript will have a broad impact on web development.</p>
+
+<p>The current version of EcmaScript supported in modern browsers is ES5 (with some ES6 support).  ES5 drives a lot of developers mad.  Folks coming from the backend development space find ES5 lacks some pretty basic language features.  As such, several workarounds have emerged.  TypeScript is very popular in the .NET world (and here at Wintellect) and CoffeeScript is kind of a big deal™ in the Ruby community.  Both TypeScript and CoffeeScript provide syntactic sugar on top of ES5 and then are transcompiled into ES5 compliant JavaScript.  ES6 will tackle many of the core language shortcomings addressed in TypeScript and CoffeeScript.</p>
+
+<p>There are quite a few new features in ES6, many still in draft form.  In this post I’ll cover classes, Arrow Functions, Modules, Block Scoping, and Promises.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://ecmascript2015.herokuapp.com/post/arrow/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://ecmascript2015.herokuapp.com/post/arrow/">Arrow Function</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://ecmascript2015.herokuapp.com/post/templatestring/">Template String</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://ecmascript2015.herokuapp.com/post/templatestring/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://ecmascript2015.herokuapp.com/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

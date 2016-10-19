@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16" />
+
+  <title>Promises &middot; ES6 Features</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="https://ecmascript2015.herokuapp.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/custom_style.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://ecmascript2015.herokuapp.com/">ES6 Features</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/">Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/arrow/">Arrow function</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/modules/">Modules</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/promises/">Promises</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/blockscoping/">Block Scoping</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/classes/">Classes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/generator/">Generator</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/templatestring/">Template Strings</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/destructuring/">Destructuring</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/spreadoperator/">Spread Operators</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Promises</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>23 Sep 2016, 11:49</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  <p><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script></p>
+
+<p class='custom-heading'>What is this?</p>
+
+<p>Promises give us a way to handle asynchronous processing in a more synchronous fashion. They represent a value that we can handle at some point in the future. And, better than callbacks here, Promises give us guarantees about that future value, specifically:</p>
+
+<ol>
+  <li>No other registered handlers of that value can change it (<i>the Promise is immutable</i>)</li>
+  <li>We are guaranteed to receive the value, regardless of when we register a handler for it, even if it's already resolved (<i>in contrast to events, which can incur race conditions</i>).</li>
+</ol>
+
+<p class='custom-sub-heading'>How to create a promise</p>
+
+<p>The standard way to create a Promise is by using the new Promise constructor which accepts a handler that is given two functions as parameters. The first handler (<i>typically named <highlight>resolve</highlight></i>) is a function to call with the future value when it&rsquo;s ready; and the second handler (<i>typically named <highlight>reject</highlight></i>) is a function to call to reject the Promise if it can&rsquo;t resolve the future value.</p>
+
+<p>For Example:</p>
+
+<pre>
+<code class="language-javascript">
+var p = new Promise(function(resolve, reject) {  
+   if (/* condition */) {
+      resolve(/* value */);  // fulfilled successfully
+   }
+   else {
+      reject(/* reason */);  // error, rejected
+   }
+});
+</code>
+</pre>
+
+<p>A Promise is in one of these states:</p>
+
+<ul>
+  <li><i><highlight>pending:</highlight></i> initial state, not fulfilled or rejected.
+  <li><i><highlight>fulfilled:</highlight></i> meaning that the operation completed successfully.
+  <li><i><highlight>rejected:</highlight></i> meaning that the operation failed.
+</ul>
+
+<p>A pending promise can either be fulfilled with a value, or rejected with a reason (error). When either of these happens, the associated handlers queued up by a promise&rsquo;s then method are called. (If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached.)</p>
+
+<p>Here is the idea of a promise:</p>
+
+<p><img src="https://ecmascript2015.herokuapp.com/img/promises.png" /></p>
+
+<p class='custom-sub-heading'>How to use a promise</p>
+
+<p>Once we have a Promise, it can be passed around as a value. The Promise is a stand-in for a future value; and so it can be returned from a function, passed as a parameter and used in any other way a standard value would be used.</p>
+
+<p>To consume the Promise - meaning we want to process the Promises value once fulfilled - we attach a handler to the Promise using it&rsquo;s .then() method. This method takes a function that will be passed the resolved value of the Promise once it is fulfilled.</p>
+
+<pre>
+<code class="language-javascript">
+var p = new Promise((resolve, reject) => resolve(5));  
+p.then((val) => console.log(val)); // 5  
+</code>
+</pre>
+
+<p>A Promise&rsquo;s .then() method actually takes two possible parameters. The first is the function to be called when the Promise is fulfilled and the second is a function to be called if the Promise is rejected.</p>
+
+<pre>
+<code class="language-javascript">
+p.then((val) => console.log("fulfilled:", val),  
+       (err) => console.log("rejected: ", err));  
+</code>
+</pre>
+
+<p class='custom-heading'>Example</p>
+
+<pre>
+<code class="language-javascript">
+'use strict';
+var promiseCount = 0;
+
+(function() {
+    var thisPromiseCount = ++promiseCount;
+
+    document.getElementById('output').innerHTML += `Sync code started\n`;
+
+    // We make a new promise: we promise a numeric count of this promise, starting from 1 (after waiting 3s)
+    var p1 = new Promise(
+        // The resolver function is called with the ability to resolve or
+        // reject the promise
+        function(resolve, reject) {
+            document.getElementById('output').innerHTML += `Async code started\n`;
+            // This is only an example to create asynchronism
+            window.setTimeout(
+                function() {
+                    // We fulfill the promise !
+                    resolve(thisPromiseCount);
+                }, Math.random() * 2000 + 1000);
+        }
+    );
+
+    // We define what to do when the promise is resolved/fulfilled with the then() call,
+    // and the catch() method defines what to do if the promise is rejected.
+    p1.then(
+        // Log the fulfillment value
+        function(val) {
+            document.getElementById('output').innerHTML += `Async code terminated\n`;
+        })
+    .catch(
+        // Log the rejection reason
+        function(reason) {
+            document.getElementById('output').innerHTML += `Handle rejected promise ${reason} here\n`;
+        });
+
+    document.getElementById('output').innerHTML += `Sync code terminated\n`;
+})();
+
+//Output
+Sync code started
+Async code started
+Sync code terminated
+Async code terminated //Gets called after few seconds
+</code>
+</pre>
+
+<p class='custom-sub-heading'>Working with multiple promises</p>
+
+<p>Sometimes we&rsquo;re working with multiple Promises and we need to be able to start our processing when all of them are fulfilled. This is where <highlight>Promise.all()</highlight> comes in. Promise.all() takes an array of Promises and once all of them are fulfilled it fulfills its returned Promise with an array of their fulfilled values.</p>
+
+<p>For example, let&rsquo;s say we have a function wrapper around jQuery&rsquo;s .getJSON() method to fetch JSON results from a url which returns a Promise.</p>
+
+<pre>
+<code class="language-javascript">
+var fetchJSON = function(url) {  
+  return new Promise((resolve, reject) => {
+    $.getJSON(url)
+      .done((json) => resolve(json))
+      .fail((xhr, status, err) => reject(status + err.message));
+  });
+}
+</code>
+</pre>
+
+<p>Now we can setup an array of promises which will fulfill with the JSON results of fetching the response from each of the urls in our itemUrls array. Promise.all() will not fulfill until all the Promises in the array have fulfilled. If any of those promises are rejected (or throw an exception) then the Promise.all() Promise will reject and the .catch() below will be triggered.</p>
+
+<pre>
+<code class="language-javascript">
+var itemUrls = {  
+    'http://www.api.com/items/1234',
+    'http://www.api.com/items/4567'
+  },
+  itemPromises = itemUrls.map(fetchJSON);
+
+  Promise.all(itemPromises)  
+  .then(function(results) {
+     // we only get here if ALL promises fulfill
+     results.forEach(function(item) {
+       // process item
+     });
+  })
+  .catch(function(err) {
+    // Will catch failure of first failed promise
+    console.log("Failed:", err);
+  });
+</code>
+</pre>
+
+<div class="warning">
+Keep in mind, a failure (rejection or thrown exception) of any of the Promises in the array passed to Promise.all() will cause the Promise it returns to be rejected.
+</div>
+
+<div class="info">
+Sometimes, we don't need to wait on all the Promises in our array; but we simply want to get the results of the first Promise in the array to fulfill. We can do this with <highlight>Promise.race()</highlight>, which, like Promise.all(), takes an array of promises; but unlike Promise.all() will fulfill its returned Promise as soon as the first Promise in that array fulfills.
+</div>
+
+<p class='custom-heading'>Try it out here:</p>
+
+<p><a href="https://jsfiddle.net/r594gt5h/2/">https://jsfiddle.net/r594gt5h/2/</a></p>
+
+<p class='custom-heading'>Exercise:</p>
+
+<p>Go to the following link and try to resolve all the errors in ES6 way.</p>
+
+<p><a href="http://tddbin.com/#?kata=es6/language/promise/creation">http://tddbin.com/#?kata=es6/language/promise/creation</a> <br/>
+<a href="http://tddbin.com/#?kata=es6/language/promise/chaining-then">http://tddbin.com/#?kata=es6/language/promise/chaining-then</a> <br/>
+<a href="http://tddbin.com/#?kata=es6/language/promise/api">http://tddbin.com/#?kata=es6/language/promise/api</a> <br/>
+<a href="http://tddbin.com/#?kata=es6/language/promise/catch">http://tddbin.com/#?kata=es6/language/promise/catch</a> <br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://ecmascript2015.herokuapp.com/post/modules/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://ecmascript2015.herokuapp.com/post/modules/">Modules</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://ecmascript2015.herokuapp.com/post/blockscoping/">Block Scoping</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://ecmascript2015.herokuapp.com/post/blockscoping/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://ecmascript2015.herokuapp.com/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

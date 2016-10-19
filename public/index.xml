@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ES6 Features</title>
+    <link>https://ecmascript2015.herokuapp.com/</link>
+    <description>Recent content on ES6 Features</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Oct 2016 17:06:21 +0530</lastBuildDate>
+    <atom:link href="https://ecmascript2015.herokuapp.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Spread Operators</title>
+      <link>https://ecmascript2015.herokuapp.com/post/spreadoperator/</link>
+      <pubDate>Mon, 03 Oct 2016 17:06:21 +0530</pubDate>
+      
+      <guid>https://ecmascript2015.herokuapp.com/post/spreadoperator/</guid>
+      <description>&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css&#34;&gt;
+&lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p class=&#39;custom-heading&#39;&gt;What is this?&lt;/p&gt;
+The spread syntax allows an expression to be expanded in places where multiple arguments (for function calls) or multiple elements (for array literals) or multiple variables  (for destructuring assignment) are expected.&lt;/p&gt;
+
+&lt;p&gt;String Operators can be written as:&lt;/p&gt;
+
+&lt;p&gt;var array = [[arg0ToN ,] &amp;hellip;iterable [, arg0ToN]]
+func([args ,] &amp;hellip;iterable [, args | &amp;hellip;iterable])&lt;/p&gt;
+
+&lt;p&gt;Parameters
+&lt;ul&gt;&lt;highlight&gt; iterable - Required. An iterable object. &lt;/highlight&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;highlight&gt; arg0ToN - Optional. One or more elements of an array literal. &lt;/highlight&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;highlight&gt; args - Optional. One or more arguments to a function. &lt;/highlight&gt;&lt;/ul&gt;&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var params = [ &#34;hello&#34;, true, 7 ]
+var other = [ 1, 2, ...params ] // [ 1, 2, &#34;hello&#34;, true, 7 ]
+f(1, 2, ...params) === 9
+
+var str = &#34;foo&#34;
+var chars = [ ...str ] // [ &#34;f&#34;, &#34;o&#34;, &#34;o&#34; ]
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;p class=&#39;custom-heading&#39;&gt;Explanation&lt;/p&gt;
+Any argument in the argument list can use the spread syntax and it can be used multiple times&lt;/p&gt;
+
+&lt;p&gt;&lt;p class=&#39;custom-heading&#39;&gt;How ES5 did it?&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var params = [ &amp;ldquo;hello&amp;rdquo;, true, 7 ];
+var other = [ 1, 2 ].concat(params); // [ 1, 2, &amp;ldquo;hello&amp;rdquo;, true, 7 ]
+f.apply(undefined, [ 1, 2 ].concat(params)) === 9;&lt;/p&gt;
+
+&lt;p&gt;var str = &amp;ldquo;foo&amp;rdquo;;
+var chars = str.split(&amp;ldquo;&amp;rdquo;); // [ &amp;ldquo;f&amp;rdquo;, &amp;ldquo;o&amp;rdquo;, &amp;ldquo;o&amp;rdquo; ]
+&lt;/code&gt;
+&lt;/pre&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Destructuring</title>
+      <link>https://ecmascript2015.herokuapp.com/post/destructuring/</link>
+      <pubDate>Sun, 02 Oct 2016 22:36:23 +0530</pubDate>
+      
+      <guid>https://ecmascript2015.herokuapp.com/post/destructuring/</guid>
+      <description>&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css&#34;&gt;
+&lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;What is Destructuring?&lt;/p&gt;
+The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from &lt;highlight&gt;arrays&lt;/highlight&gt; or &lt;highlight&gt;objects&lt;/highlight&gt; into distinct variables.
+
+There are a lot of ways in which Destructuring can be used.
+
+&lt;p class=&#39;custom-heading&#39;&gt;A very basic way to use the Destructuring feature&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var a,b,rest;
+[a,b] = [1,2];
+console.log(a); //1
+console.log(b); //2
+
+[a,b,...rest] = [1,2,3,4,5,6,7,8];
+console.log(a);//1
+console.log(b);//2
+console.log(rest);//[3,4,5,6,7,8]
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Explanation&lt;/p&gt;
+
+&lt;p&gt;Here the variables a and b are assigned in one-line using the destructuring functionality of ecmascript2015. Unlike the previous version of ECMAScript, where the variables had to be assigned separately, this method helps achieve this in a single line of code.&lt;/p&gt;
+
+&lt;p&gt;Also note the &lt;highlight&gt;&amp;hellip;&lt;/highlight&gt; allows us to assign the variable &amp;ldquo;rest&amp;rdquo;, the remaining values in the array.&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;How ES5 did it?&lt;/p&gt;
+
+&lt;p&gt;In ES5, this was done like this:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+&#34;use strict&#34;;
+
+var a, b, rest;
+a = 1;
+b = 2;
+
+console.log(a); //1
+console.log(b); //2
+
+a = 1;
+b = 2;
+rest = [3, 4, 5, 6, 7, 8];
+
+console.log(a); //1
+console.log(b); //2
+console.log(rest); //[3,4,5,6,7,8]
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Example code on Array Destructuring&lt;/p&gt;
+Different scenarios :
+
+&lt;p class=&#39;custom-sub-heading&#39;&gt;1. The basic array destructuring &lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var foo = [&#34;one&#34;, &#34;two&#34;, &#34;three&#34;];
+
+var [one, two, three] = foo;
+console.log(one); // &#34;one&#34;
+console.log(two); // &#34;two&#34;
+console.log(three); // &#34;three&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/17/edit?js,console&#34;&gt;https://jsbin.com/tikagup/17/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;2. Assignment separate from declaration and the &lt;highlight&gt;...&lt;/highlight&gt; operation example&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var a,b,rest;
+[a,b] = [1,2];
+console.log(a); //1
+console.log(b); //2
+
+[a,b,...rest] = [1,2,3,4,5,6,7,8];
+console.log(a);//1
+console.log(b);//2
+console.log(rest);//[3,4,5,6,7,8]
+&lt;/pre&gt;
+&lt;/code&gt;
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/1/edit&#34;&gt;https://jsbin.com/tikagup/1/edit&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;3. Default values&lt;/p&gt;
+&lt;p&gt;A variable can be assigned a default, in the case that the value pulled from the array is undefined.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var a, b;
+
+[a=5, b=7] = [1];
+console.log(a); // 1
+console.log(b); // 7
+&lt;/code&gt;
+&lt;/pre&gt;
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/4/edit?js,console&#34;&gt;https://jsbin.com/tikagup/4/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;4. Swapping variables&lt;/p&gt;
+&lt;p&gt;Two variables values can be swapped in one destructuring expression. Without destructuring assignment, swapping two values requires a temporary variable.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var a = 1;
+var b = 3;
+
+[a, b] = [b, a];
+console.log(a); // 3
+console.log(b); // 1
+&lt;/code&gt;
+&lt;/pre&gt;
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/5/edit?js,console&#34;&gt;https://jsbin.com/tikagup/5/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;5. Parsing an array returned from a function&lt;/p&gt;
+&lt;p&gt;It&#39;s always been possible to return an array from a function. Destructuring can make working with an array return value more concise.
+In this example, f() returns the values [1, 2] as its output, which can be parsed in a single line with destructuring.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+function f() {
+  return [1, 2];
+}
+
+var a, b;
+[a, b] = f();
+console.log(a); // 1
+console.log(b); // 2
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/6/edit?js,console&#34;&gt;https://jsbin.com/tikagup/6/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;6. Ignoring some returned values&lt;/p&gt;
+&lt;p&gt;You can ignore return values that you&#39;re not interested in.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+function f() {
+  return [1, 2, 3];
+}
+
+var [a, , b] = f();
+console.log(a); // 1
+console.log(b); // 3
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/7/edit?js,console&#34;&gt;https://jsbin.com/tikagup/7/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;7. Pulling values from a regular expression match&lt;/p&gt;
+&lt;p&gt;When the regular expression exec() method finds a match, it returns an array containing first the entire matched portion of the string and then the portions of the string that matched each parenthesized group in the regular expression. Destructuring assignment allows you to pull the parts out of this array easily, ignoring the full match if it is not needed.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var url = &#34;https://developer.mozilla.org/en-US/Web/JavaScript&#34;;
+
+var parsedURL = /^(\w+)\:\/\/([^\/]+)\/(.*)$/.exec(url);
+console.log(parsedURL); // [&#34;https://developer.mozilla.org/en-US/Web/JavaScript&#34;, &#34;https&#34;, &#34;developer.mozilla.org&#34;, &#34;en-US/Web/JavaScript&#34;]
+
+var [, protocol, fullhost, fullpath] = parsedURL;
+
+console.log(protocol); // &#34;https&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/8/edit?js,console&#34;&gt;https://jsbin.com/tikagup/8/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Example code on Object Destructuring&lt;/p&gt;
+Different scenarios :
+
+&lt;p class=&#39;custom-sub-heading&#39;&gt;1. Basic assignment.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var o = {p: 42, q: true};
+var {p, q} = o;
+
+console.log(p); // 42
+console.log(q); // true
+&lt;/code&gt;
+&lt;/pre&gt;
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/9/edit?js,console&#34;&gt;https://jsbin.com/tikagup/9/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;2. Assignment without declaration.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var a, b;
+
+({a, b} = {a:1, b:2});
+&lt;/code&gt;
+&lt;/pre&gt;
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/10/edit?js,console&#34;&gt;https://jsbin.com/tikagup/10/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;3. Assigning to new variable names&lt;/p&gt;
+&lt;p&gt;A variable can be extracted from an object and assigned to a variable with a different name than the object property.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var o = {p: 42, q: true};
+var {p: foo, q: bar} = o;
+
+console.log(foo); // 42
+console.log(bar); // true  
+&lt;/code&gt;
+&lt;/pre&gt;
+
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/11/edit?js,console&#34;&gt;https://jsbin.com/tikagup/11/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;4. Default values&lt;/p&gt;
+&lt;p&gt;A variable can be assigned a default, in the case that the value pulled from the object is undefined.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var {a=10, b=5} = {a: 3};
+
+console.log(a); // 3
+console.log(b); // 5
+&lt;/code&gt;
+&lt;/pre&gt;
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/12/edit?js,console&#34;&gt;https://jsbin.com/tikagup/12/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;5. Nested object and array destructuring.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var metadata = {
+    title: &#34;Scratchpad&#34;,
+    translations: [
+       {
+        locale: &#34;de&#34;,
+        localization_tags: [ ],
+        last_edit: &#34;2014-04-14T08:43:37&#34;,
+        url: &#34;/de/docs/Tools/Scratchpad&#34;,
+        title: &#34;JavaScript-Umgebung&#34;
+       }
+    ],
+    url: &#34;/en-US/docs/Tools/Scratchpad&#34;
+};
+
+var { title: englishTitle, translations: [{ title: localeTitle }] } = metadata;
+
+console.log(englishTitle); // &#34;Scratchpad&#34;
+console.log(localeTitle);  // &#34;JavaScript-Umgebung&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/13/edit?js,console&#34;&gt;https://jsbin.com/tikagup/13/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;6. For of iteration and destructuring.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var people = [
+  {
+    name: &#34;Mike Smith&#34;,
+    family: {
+      mother: &#34;Jane Smith&#34;,
+      father: &#34;Harry Smith&#34;,
+      sister: &#34;Samantha Smith&#34;
+    },
+    age: 35
+  },
+  {
+    name: &#34;Tom Jones&#34;,
+    family: {
+      mother: &#34;Norah Jones&#34;,
+      father: &#34;Richard Jones&#34;,
+      brother: &#34;Howard Jones&#34;
+    },
+    age: 25
+  }
+];
+
+for (var {name: n, family: { father: f } } of people) {
+  console.log(&#34;Name: &#34; + n + &#34;, Father: &#34; + f);
+}
+
+// &#34;Name: Mike Smith, Father: Harry Smith&#34;
+// &#34;Name: Tom Jones, Father: Richard Jones&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/14/edit?js,console&#34;&gt;https://jsbin.com/tikagup/14/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;7. Pulling fields from objects passed as function parameter&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+function userId({id}) {
+  return id;
+}
+
+function whois({displayName: displayName, fullName: {firstName: name}}){
+  console.log(displayName + &#34; is &#34; + name);
+}
+
+var user = {
+  id: 42,
+  displayName: &#34;jdoe&#34;,
+  fullName: {
+      firstName: &#34;John&#34;,
+      lastName: &#34;Doe&#34;
+  }
+};
+
+console.log(&#34;userId: &#34; + userId(user)); // &#34;userId: 42&#34;
+whois(user); // &#34;jdoe is John&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/15/edit?js,console&#34;&gt;https://jsbin.com/tikagup/15/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#34;custom-sub-heading&#34;&gt;8. Computed object property names and destructuring&lt;/p&gt;
+&lt;p&gt;Computed property names, like on object literals, can be used with destructuring.&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+let key = &#34;z&#34;;
+let { [key]: foo } = { z: &#34;bar&#34; };
+
+console.log(foo); // &#34;bar&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+Sample Code Link:
+&lt;a href=&#34;https://jsbin.com/tikagup/16/edit?js,console&#34;&gt;https://jsbin.com/tikagup/16/edit?js,console&lt;/a&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Exercise:&lt;/p&gt;
+
+&lt;p&gt;Go to the following link and try to resolve all the errors in ES6 way.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/destructuring/array&#34;&gt;http://tddbin.com/#?kata=es6/language/destructuring/array&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/destructuring/string&#34;&gt;http://tddbin.com/#?kata=es6/language/destructuring/string&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/destructuring/object&#34;&gt;http://tddbin.com/#?kata=es6/language/destructuring/object&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/destructuring/defaults&#34;&gt;http://tddbin.com/#?kata=es6/language/destructuring/defaults&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/destructuring/parameters&#34;&gt;http://tddbin.com/#?kata=es6/language/destructuring/parameters&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/destructuring/rename&#34;&gt;http://tddbin.com/#?kata=es6/language/destructuring/rename&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Template String</title>
+      <link>https://ecmascript2015.herokuapp.com/post/templatestring/</link>
+      <pubDate>Fri, 30 Sep 2016 14:21:45 +0530</pubDate>
+      
+      <guid>https://ecmascript2015.herokuapp.com/post/templatestring/</guid>
+      <description>&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css&#34;&gt;
+&lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;What is this?&lt;/p&gt;
+  Template literals are string literals allowing embedded expressions. You can use multi-line strings and string interpolation features with them.Prior to ES6 they were called &#34;template strings&#34;.
+
+ Template literals are enclosed by the back-tick (` `) (grave accent) character instead of double or single quotes. Template literals can contain place holders. These are indicated by the Dollar sign and curly braces (${expression}). The expressions in the place holders and the text between them get passed to a function.
+
+ &lt;/br&gt;
+ &lt;highlight&gt;Multiline String &lt;/highlight&gt;
+ Any new line characters inserted in the source are part of the template literal.
+ &lt;p class=&#39;custom-heading&#39;&gt;How to use it?&lt;/p&gt;
+ &lt;pre&gt;
+ &lt;code class=&#34;language-javascript&#34;&gt;
+ console.log(`Interesting fact line 1
+   Interesting fact line 2`);
+  //Output
+  &#34;Interesting fact line 1&#34;
+  &#34;Interesting fact line 2&#34;
+  &lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;highlight&gt;Tagged template literals&lt;/highlight&gt;
+  Tagged template allows you to modify the output of template literals using a function. The first argument contains an array of string literals (&#34;Hello &#34; , &#34; world&#34;, and &#34;&#34; in this example). The second, and each argument after the first one, are the values of the processed (or sometimes called cooked) substitution expressions
+  &lt;p class=&#39;custom-heading&#39;&gt;How to use it?&lt;/p&gt;
+  &lt;pre&gt;
+  &lt;code class=&#34;language-javascript&#34;&gt;
+  var a = 5;
+  var b = 10;
+
+  function tag(strings, ...values) {
+  console.log(strings[0]); // &#34;Hello &#34;
+  console.log(strings[1]); // &#34; world &#34;
+  console.log(strings[2]); // &#34;&#34;
+  console.log(values[0]);  // 15
+  console.log(values[1]);  // 50
+
+  return &#34;Bazinga!&#34;;
+}
+
+tag`Hello ${ a + b } world ${ a * b }`;
+// &#34;Bazinga!&#34;
+  &lt;/code&gt;
+  &lt;/pre&gt;
+  &lt;highlight&gt;Raw strings&lt;/highlight&gt;
+  The special raw property, available on the first function argument of tagged template literals, allows you to access the raw strings as they were entered.
+  &lt;p class=&#39;custom-heading&#39;&gt;How to use it?&lt;/p&gt;
+  &lt;pre&gt;
+  &lt;code class=&#34;language-javascript&#34;&gt;
+  String.raw`Hi\n${2+3}!`;
+// &#34;Hi\n5!&#34;
+  &lt;/code&gt;
+  &lt;/pre&gt;
+ &lt;p class=&#39;custom-heading&#39;&gt;How to use it?&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Explanation&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;How ES5 did it?&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+console.log(&#34;string text line 1\n&#34;+
+&#34;string text line 2&#34;);
+// &#34;string text line 1
+// string text line 2&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+
+&lt;p class=&#39;custom-heading&#39;&gt;Try it out here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jsfiddle.net/vznt1dya/&#34;&gt;https://jsfiddle.net/vznt1dya/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p class=&#39;custom-heading&#39;&gt;Exercise:&lt;/p&gt;
+Go to the following link and try to resolve all the errors in ES6 way.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/template-strings/basics&#34;&gt;http://tddbin.com/#?kata=es6/language/template-strings/basics&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/template-strings/multiline&#34;&gt;http://tddbin.com/#?kata=es6/language/template-strings/multiline&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/template-strings/tagged&#34;&gt;http://tddbin.com/#?kata=es6/language/template-strings/tagged&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/template-strings/raw&#34;&gt;http://tddbin.com/#?kata=es6/language/template-strings/raw&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES6 New Features overview</title>
+      <link>https://ecmascript2015.herokuapp.com/post/home/</link>
+      <pubDate>Fri, 23 Sep 2016 12:21:49 +0100</pubDate>
+      
+      <guid>https://ecmascript2015.herokuapp.com/post/home/</guid>
+      <description>&lt;p&gt;EcmaScript is the standardized scripting language that JavaScript (and some other languages, like ActionScript) implement.  If you think EcmaScript is a terrible name, you’re not alone.  Brendan Eich, the original developer of JavaScript, once wrote that the name EcmaScript sounds like a skin disease.  Naming aside, JavaScript is one of the most important languages in existence today.  Every browser has a JavaScript interpreter, JavaScript on the server is becoming ever more popular, and now it’s possible to use JavaScript for desktop (Chrome Apps), nativish mobile (PhoneGap) and native Windows 8 apps.  A new version of EcmaScript will have a broad impact on web development.&lt;/p&gt;
+
+&lt;p&gt;The current version of EcmaScript supported in modern browsers is ES5 (with some ES6 support).  ES5 drives a lot of developers mad.  Folks coming from the backend development space find ES5 lacks some pretty basic language features.  As such, several workarounds have emerged.  TypeScript is very popular in the .NET world (and here at Wintellect) and CoffeeScript is kind of a big deal™ in the Ruby community.  Both TypeScript and CoffeeScript provide syntactic sugar on top of ES5 and then are transcompiled into ES5 compliant JavaScript.  ES6 will tackle many of the core language shortcomings addressed in TypeScript and CoffeeScript.&lt;/p&gt;
+
+&lt;p&gt;There are quite a few new features in ES6, many still in draft form.  In this post I’ll cover classes, Arrow Functions, Modules, Block Scoping, and Promises.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Arrow Function</title>
+      <link>https://ecmascript2015.herokuapp.com/post/arrow/</link>
+      <pubDate>Fri, 23 Sep 2016 11:56:13 +0100</pubDate>
+      
+      <guid>https://ecmascript2015.herokuapp.com/post/arrow/</guid>
+      <description>&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css&#34;&gt;
+&lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;What is this?&lt;/p&gt;
+
+&lt;p&gt;Arrow functions – also called &lt;highlight&gt;“fat arrow”&lt;/highlight&gt; functions, from CoffeeScript (a transcompiled language) are a more concise syntax for writing function expressions. They utilize a new token, &lt;highlight&gt;=&amp;gt;&lt;/highlight&gt;, that looks like a fat arrow. Arrow functions are anonymous and change the way this binds in functions.&lt;/p&gt;
+
+&lt;p&gt;Arrow functions make our code more concise, and simplify function scoping and the this keyword. They are one-line mini functions which work much like Lambdas in other languages like C# or Python. By using arrow function we avoid having to type the function keyword, return keyword (it’s implicit in arrow functions), and curly brackets.&lt;/p&gt;
+
+&lt;p&gt;An arrow function expression has a shorter syntax compared to function expressions and does not bind its own &lt;highlight&gt;this&lt;/highlight&gt;, &lt;highlight&gt;arguments&lt;/highlight&gt;, &lt;highlight&gt;super&lt;/highlight&gt;, or &lt;highlight&gt;new.target&lt;/highlight&gt;. Arrow functions are always anonymous. These function expressions are best suited for non-method functions and they can not be used as constructors.&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;How to use it?&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+let tmp = {
+  fName: &#39;John&#39;,
+  lName: &#39;Snow&#39;,
+  hobby: [&#39;fighting&#39;, &#39;riding&#39;, &#39;reading&#39;, &#39;coding&#39;],
+  likes: function(){
+    this.hobby.map((item) =&gt; {
+      console.log(`${this.fName} ${this.lName} likes ${item}`);
+    })
+  }
+}
+tmp.likes();
+
+// Output
+&#34;John Snow likes fighting&#34;
+&#34;John Snow likes riding&#34;
+&#34;John Snow likes reading&#34;
+&#34;John Snow likes coding&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Explanation&lt;/p&gt;
+
+&lt;p&gt;In the above example, &amp;lsquo;this&amp;rsquo; inside &amp;lsquo;hobby.map&amp;rsquo; function should ideally refer to &amp;lsquo;likes&amp;rsquo; object. In that case, &amp;lsquo;this.fName&amp;rsquo;
+should have been &amp;lsquo;undefined&amp;rsquo;. But arrow function levels up the scope of &amp;lsquo;this&amp;rsquo; and points to &amp;lsquo;tmp&amp;rsquo; object.&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;How ES5 did it?&lt;/p&gt;
+
+&lt;p&gt;In ES5, this was done like this:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+&#39;use strict&#39;;
+var tmp = {
+  fName: &#39;John&#39;,
+  lName: &#39;Snow&#39;,
+  hobby: [&#39;fighting&#39;, &#39;riding&#39;, &#39;reading&#39;, &#39;coding&#39;],
+  likes: function likes() {
+    var _this = this;
+    this.hobby.map(function (item) {
+      console.log(_this.fName + &#39; &#39; + _this.lName + &#39; likes &#39; + item);
+    });
+  }
+};
+tmp.likes();
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Try it out here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jsfiddle.net/vxh0kmpy/&#34;&gt;https://jsfiddle.net/vxh0kmpy/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Exercise:&lt;/p&gt;
+
+&lt;p&gt;Go to the following link and try to resolve all the errors in ES6 way.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/arrow-functions/basics&#34;&gt;http://tddbin.com/#?kata=es6/language/arrow-functions/basics&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/arrow-functions/binding&#34;&gt;http://tddbin.com/#?kata=es6/language/arrow-functions/binding&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Block Scoping</title>
+      <link>https://ecmascript2015.herokuapp.com/post/blockscoping/</link>
+      <pubDate>Fri, 23 Sep 2016 11:53:50 +0100</pubDate>
+      
+      <guid>https://ecmascript2015.herokuapp.com/post/blockscoping/</guid>
+      <description>&lt;p&gt;Block Scoping&lt;/p&gt;
+
+&lt;p&gt;Scoping in JavaScript is confusing for developers with a C/C#/Java background.  Hoisting can add to that confusion.  In ES5, variables are either globally or locally function scoped.  The lack of block scoping has caused confusion in ES5, and resulted in some interesting patterns to achieve block scope.  In ES6, you can use the new let keyword to achieve block scoping. &lt;a href=&#34;http://www.es6fiddle.net/hrut3qnv/&#34;&gt;http://www.es6fiddle.net/hrut3qnv/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;var num = 0; //globally scoped&lt;/p&gt;
+
+&lt;p&gt;for (let i = 0; i &amp;lt; 10; i++) { //i is block scoped
+  num += i;
+  console.log(&amp;lsquo;value of i in block: &amp;lsquo; + i);
+}&lt;/p&gt;
+
+&lt;p&gt;console.log(&amp;lsquo;Is i defined here?: &amp;lsquo; + (typeof i !== &amp;lsquo;undefined&amp;rsquo;)); //Is i defined here?: false&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Promises</title>
+      <link>https://ecmascript2015.herokuapp.com/post/promises/</link>
+      <pubDate>Fri, 23 Sep 2016 11:49:29 +0100</pubDate>
+      
+      <guid>https://ecmascript2015.herokuapp.com/post/promises/</guid>
+      <description>&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css&#34;&gt;
+&lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;What is this?&lt;/p&gt;
+
+&lt;p&gt;Promises give us a way to handle asynchronous processing in a more synchronous fashion. They represent a value that we can handle at some point in the future. And, better than callbacks here, Promises give us guarantees about that future value, specifically:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;No other registered handlers of that value can change it (&lt;i&gt;the Promise is immutable&lt;/i&gt;)&lt;/li&gt;
+  &lt;li&gt;We are guaranteed to receive the value, regardless of when we register a handler for it, even if it&#39;s already resolved (&lt;i&gt;in contrast to events, which can incur race conditions&lt;/i&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p class=&#39;custom-sub-heading&#39;&gt;How to create a promise&lt;/p&gt;
+
+&lt;p&gt;The standard way to create a Promise is by using the new Promise constructor which accepts a handler that is given two functions as parameters. The first handler (&lt;i&gt;typically named &lt;highlight&gt;resolve&lt;/highlight&gt;&lt;/i&gt;) is a function to call with the future value when it&amp;rsquo;s ready; and the second handler (&lt;i&gt;typically named &lt;highlight&gt;reject&lt;/highlight&gt;&lt;/i&gt;) is a function to call to reject the Promise if it can&amp;rsquo;t resolve the future value.&lt;/p&gt;
+
+&lt;p&gt;For Example:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var p = new Promise(function(resolve, reject) {  
+   if (/* condition */) {
+      resolve(/* value */);  // fulfilled successfully
+   }
+   else {
+      reject(/* reason */);  // error, rejected
+   }
+});
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;A Promise is in one of these states:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;i&gt;&lt;highlight&gt;pending:&lt;/highlight&gt;&lt;/i&gt; initial state, not fulfilled or rejected.
+  &lt;li&gt;&lt;i&gt;&lt;highlight&gt;fulfilled:&lt;/highlight&gt;&lt;/i&gt; meaning that the operation completed successfully.
+  &lt;li&gt;&lt;i&gt;&lt;highlight&gt;rejected:&lt;/highlight&gt;&lt;/i&gt; meaning that the operation failed.
+&lt;/ul&gt;
+
+&lt;p&gt;A pending promise can either be fulfilled with a value, or rejected with a reason (error). When either of these happens, the associated handlers queued up by a promise&amp;rsquo;s then method are called. (If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached.)&lt;/p&gt;
+
+&lt;p&gt;Here is the idea of a promise:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://ecmascript2015.herokuapp.com/img/promises.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-sub-heading&#39;&gt;How to use a promise&lt;/p&gt;
+
+&lt;p&gt;Once we have a Promise, it can be passed around as a value. The Promise is a stand-in for a future value; and so it can be returned from a function, passed as a parameter and used in any other way a standard value would be used.&lt;/p&gt;
+
+&lt;p&gt;To consume the Promise - meaning we want to process the Promises value once fulfilled - we attach a handler to the Promise using it&amp;rsquo;s .then() method. This method takes a function that will be passed the resolved value of the Promise once it is fulfilled.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var p = new Promise((resolve, reject) =&gt; resolve(5));  
+p.then((val) =&gt; console.log(val)); // 5  
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;A Promise&amp;rsquo;s .then() method actually takes two possible parameters. The first is the function to be called when the Promise is fulfilled and the second is a function to be called if the Promise is rejected.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+p.then((val) =&gt; console.log(&#34;fulfilled:&#34;, val),  
+       (err) =&gt; console.log(&#34;rejected: &#34;, err));  
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Example&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+&#39;use strict&#39;;
+var promiseCount = 0;
+
+(function() {
+    var thisPromiseCount = ++promiseCount;
+
+    document.getElementById(&#39;output&#39;).innerHTML += `Sync code started\n`;
+
+    // We make a new promise: we promise a numeric count of this promise, starting from 1 (after waiting 3s)
+    var p1 = new Promise(
+        // The resolver function is called with the ability to resolve or
+        // reject the promise
+        function(resolve, reject) {
+            document.getElementById(&#39;output&#39;).innerHTML += `Async code started\n`;
+            // This is only an example to create asynchronism
+            window.setTimeout(
+                function() {
+                    // We fulfill the promise !
+                    resolve(thisPromiseCount);
+                }, Math.random() * 2000 + 1000);
+        }
+    );
+
+    // We define what to do when the promise is resolved/fulfilled with the then() call,
+    // and the catch() method defines what to do if the promise is rejected.
+    p1.then(
+        // Log the fulfillment value
+        function(val) {
+            document.getElementById(&#39;output&#39;).innerHTML += `Async code terminated\n`;
+        })
+    .catch(
+        // Log the rejection reason
+        function(reason) {
+            document.getElementById(&#39;output&#39;).innerHTML += `Handle rejected promise ${reason} here\n`;
+        });
+
+    document.getElementById(&#39;output&#39;).innerHTML += `Sync code terminated\n`;
+})();
+
+//Output
+Sync code started
+Async code started
+Sync code terminated
+Async code terminated //Gets called after few seconds
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&#39;custom-sub-heading&#39;&gt;Working with multiple promises&lt;/p&gt;
+
+&lt;p&gt;Sometimes we&amp;rsquo;re working with multiple Promises and we need to be able to start our processing when all of them are fulfilled. This is where &lt;highlight&gt;Promise.all()&lt;/highlight&gt; comes in. Promise.all() takes an array of Promises and once all of them are fulfilled it fulfills its returned Promise with an array of their fulfilled values.&lt;/p&gt;
+
+&lt;p&gt;For example, let&amp;rsquo;s say we have a function wrapper around jQuery&amp;rsquo;s .getJSON() method to fetch JSON results from a url which returns a Promise.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var fetchJSON = function(url) {  
+  return new Promise((resolve, reject) =&gt; {
+    $.getJSON(url)
+      .done((json) =&gt; resolve(json))
+      .fail((xhr, status, err) =&gt; reject(status + err.message));
+  });
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Now we can setup an array of promises which will fulfill with the JSON results of fetching the response from each of the urls in our itemUrls array. Promise.all() will not fulfill until all the Promises in the array have fulfilled. If any of those promises are rejected (or throw an exception) then the Promise.all() Promise will reject and the .catch() below will be triggered.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var itemUrls = {  
+    &#39;http://www.api.com/items/1234&#39;,
+    &#39;http://www.api.com/items/4567&#39;
+  },
+  itemPromises = itemUrls.map(fetchJSON);
+
+  Promise.all(itemPromises)  
+  .then(function(results) {
+     // we only get here if ALL promises fulfill
+     results.forEach(function(item) {
+       // process item
+     });
+  })
+  .catch(function(err) {
+    // Will catch failure of first failed promise
+    console.log(&#34;Failed:&#34;, err);
+  });
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;div class=&#34;warning&#34;&gt;
+Keep in mind, a failure (rejection or thrown exception) of any of the Promises in the array passed to Promise.all() will cause the Promise it returns to be rejected.
+&lt;/div&gt;
+
+&lt;div class=&#34;info&#34;&gt;
+Sometimes, we don&#39;t need to wait on all the Promises in our array; but we simply want to get the results of the first Promise in the array to fulfill. We can do this with &lt;highlight&gt;Promise.race()&lt;/highlight&gt;, which, like Promise.all(), takes an array of promises; but unlike Promise.all() will fulfill its returned Promise as soon as the first Promise in that array fulfills.
+&lt;/div&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Try it out here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jsfiddle.net/r594gt5h/2/&#34;&gt;https://jsfiddle.net/r594gt5h/2/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Exercise:&lt;/p&gt;
+
+&lt;p&gt;Go to the following link and try to resolve all the errors in ES6 way.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/promise/creation&#34;&gt;http://tddbin.com/#?kata=es6/language/promise/creation&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/promise/chaining-then&#34;&gt;http://tddbin.com/#?kata=es6/language/promise/chaining-then&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/promise/api&#34;&gt;http://tddbin.com/#?kata=es6/language/promise/api&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/promise/catch&#34;&gt;http://tddbin.com/#?kata=es6/language/promise/catch&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Modules</title>
+      <link>https://ecmascript2015.herokuapp.com/post/modules/</link>
+      <pubDate>Fri, 23 Sep 2016 11:48:26 +0100</pubDate>
+      
+      <guid>https://ecmascript2015.herokuapp.com/post/modules/</guid>
+      <description>&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css&#34;&gt;
+&lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;What is this?&lt;/p&gt;
+JavaScript modules introduced in ECMAScript 6 is defined in its own file. The functions or variables defined in a module are not visible outside unless you explicitly export them. This means that you can write code in your module and only export those values which should be accessed by other parts of your app.
+
+ES6 modules are declarative in nature. To export certain variables from a module you just use the keyword  &lt;highlight&gt;export&lt;/highlight&gt;. Similarly, to consume the exported variables in a different module you use  &lt;highlight&gt;import&lt;/highlight&gt;.
+
+&lt;p class=&#39;custom-sub-heading&#39;&gt;A Simple Module&lt;/p&gt;
+
+&lt;p&gt;Let’s create a simple module that has two functions:&lt;/p&gt;
+
+&lt;p&gt;difference() : Finds difference of two numbers. &lt;/br&gt;
+sum() : Adds two numbers.
+Next, let’s create a file named utility.js for the module:&lt;/p&gt;
+
+&lt;p&gt;&lt;highlight&gt;utility.js&lt;/highlight&gt;&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+function diff(a,b) {
+    return a-b;
+}
+
+function sum(a, b) {
+    return a + b;
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s it ! The &amp;ldquo;uitility.js&amp;rdquo; is a module here.&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Exporting and importing module&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+function diff(a,b) {
+    return a-b;
+}
+
+function sum(a, b) {
+    return a + b;
+}
+
+export { diff, sum }
+
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;The export keyword on the last line exports the two functions. As you can see, the exported functions are listed in curly braces separated by a comma. You can also rename the values while exporting like this:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+export {diff as doDiff, sum as doSum}
+
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Now, let’s see how to consume the exported values in a different module.&lt;/p&gt;
+
+&lt;p&gt;&lt;highlight&gt;app.js&lt;/highlight&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+import { diff, sum } from &amp;lsquo;utility&amp;rsquo;;
+console.log(diff(18,4)); //14
+console.log(sum(1, 2)); //3
+&lt;/pre&gt;
+&lt;/code&gt;
+Note the first line. This imports the exported values from the module utility. If you want to import a single value (for example sum), you can do it by writing the following:
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+import { sum } from &amp;lsquo;utility&amp;rsquo;;
+&lt;/pre&gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Alternatively, you can import the module as an object and access the exports via properties:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;pre&gt;
+import &amp;lsquo;utility.js&amp;rsquo; as utilObj;
+console.log(utilObj.sum(3,5));//8
+&lt;/pre&gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you are unhappy with the name that an exporting module has chosen, you can rename locally:
+&lt;code&gt;&lt;pre&gt;
+import { diff as Difference } from &amp;lsquo;utility&amp;rsquo;;
+console.log(Difference(10,7));//3
+&lt;/pre&gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Default Exports and Re-exporting&lt;/p&gt;
+
+&lt;p&gt;If you want to export a single value from the module then you can use default export. To demonstrate the usage of default exports let’s modify the utility module as shown below:&lt;/p&gt;
+
+&lt;p&gt;&lt;highlight&gt;utility.js&lt;/highlight&gt;
+&lt;code&gt;&lt;pre&gt;
+var utils = {
+  diff: function(a,b) {
+    return a-b;&lt;br /&gt;
+  },
+  sum: function(a, b) {
+    return a + b;
+  }
+};
+export default utils;
+&lt;/pre&gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The last line just exports the object utils. It can be consumed as following in a different module:
+&lt;highlight&gt;app.js&lt;/highlight&gt;
+&lt;code&gt;&lt;pre&gt;
+import utils from &amp;lsquo;utility&amp;rsquo;;
+console.log(utils.diff(9,5)); //4
+console.log(utils.sum(1, 2)); //3
+export default utils; //exports the imported value
+&lt;/pre&gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The first line simply imports the utils object exported previously. Once you import a value you can also re-export it. The last line in the above code does that.&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Exercise:&lt;/p&gt;
+
+&lt;p&gt;Go to the following link and try to resolve all the errors in ES6 way.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?&#34;&gt;http://tddbin.com/#?&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Classes</title>
+      <link>https://ecmascript2015.herokuapp.com/post/classes/</link>
+      <pubDate>Fri, 23 Sep 2016 11:42:03 +0100</pubDate>
+      
+      <guid>https://ecmascript2015.herokuapp.com/post/classes/</guid>
+      <description>&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css&#34;&gt;
+&lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;What is this?&lt;/p&gt;
+
+&lt;p&gt;JavaScript classes introduced in ECMAScript 6 are syntactical sugar over JavaScript&amp;rsquo;s existing prototype-based inheritance. The class syntax is not introducing a new object-oriented inheritance model to JavaScript. JavaScript classes provide a much simpler and clearer syntax to create objects and deal with inheritance.&lt;/p&gt;
+
+&lt;p&gt;Class concept in ES6 is almost similar like classes in Python or Java. There are 2 ways we can define classes.
+&lt;ul&gt;&lt;highlight&gt;Class declarations&lt;/highlight&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;highlight&gt;Class expression&lt;/highlight&gt;&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-sub-heading&#39;&gt;Class declarations&lt;/p&gt;
+
+&lt;p&gt;Keyword &lt;highlight&gt;class&lt;/highlight&gt; is used along with class name to declare a class. For example:
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+class Vehicle {
+  constructor(description, wheels) {
+    this.description = description;
+    this.wheels = wheels;
+  }
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;div class=&#39;warning&#39;&gt;
+  An important difference between function declarations and class declarations is that function declarations are hoisted and class declarations are not. Class needs to be declared first and then access it, otherwise code like the following will throw a ReferenceError:
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+var v = new Vehicle(); // ReferenceError
+
+class Vehicle {}
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&#39;custom-sub-heading&#39;&gt;Class expression&lt;/p&gt;
+
+&lt;p&gt;A class expression is another way to define a class. Class expressions can be named or unnamed. The name given to a named class expression is local to the class&amp;rsquo;s body. Example:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+//unnamed
+var Vehicle = class {
+  constructor(description, wheels) {
+    this.description = description;
+    this.wheels = wheels;
+  }
+};
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;How to use it?&lt;/p&gt;
+
+&lt;p&gt;Before going for example, there is an important note:
+&lt;div class=&#39;info&#39;&gt;
+The &lt;b&gt;constructor&lt;/b&gt; method is a special method for creating and initializing an object created with a class. There can only be one special method with the name &lt;b&gt;&amp;ldquo;constructor&amp;rdquo;&lt;/b&gt; in a class. A SyntaxError will be thrown if the class contains more than one occurrence of a constructor method.
+&lt;/div&gt;
+Here is an complete example of class with inheritance:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+class AvengersMember {
+  constructor(actor, role){
+    this.actor = actor;
+    this.role = role;
+  }
+
+  describeRole() {
+    console.log(`${this.actor} played role of ${this.role} in Avengers`);
+  }
+}
+
+let avengerMembers = new AvengersMember(&#39;Christian Bale&#39;, &#39;Batman&#39;);
+avengerMembers.describeRole();
+
+//Output
+&#34;Christian Bale played role of Batman in Avengers&#34;
+
+class Avengers extends AvengersMember{
+  constructor(actor, role){
+    super(actor, role);
+  }
+}
+
+let avengers = new Avengers(&#39;Robert Downey Jr&#39;, &#39;Iron Man&#39;);
+avengers.describeRole();
+
+//Output
+&#34;Robert Downey Jr played role of Iron Man in Avengers&#34;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Explanation&lt;/p&gt;
+
+&lt;p&gt;In above example, Avengers class is extending AvengersMember class. All the functions and variables of Avengers class are now member of
+AvengersMember class. When avengersMember.describeRole() is called, it takes the actor and role from parent class which got assigned
+as part of &amp;lsquo;super()&amp;rsquo; call.&lt;/p&gt;
+
+&lt;p class=&#39;custom-sub-heading&#39;&gt;Static method&lt;/p&gt;
+
+&lt;p&gt;The static keyword defines a static method for a class. Static methods are called without instantiating their class and are also not callable when the class is instantiated. Static methods are often used to create utility functions for an application.&lt;/p&gt;
+
+&lt;p&gt;For example:
+&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+class AvengersMember {
+  constructor(actor, role){
+    this.actor = actor;
+    this.role = role;
+  }
+  describeRole() {
+    console.log(`${this.actor} played role of ${this.role} in Avengers`);
+  }
+  static defaultRole() {
+    console.log(&amp;ldquo;Chris Evans played role of Captain America in Avengers&amp;rdquo;);
+  }
+}
+AvengersMember.defaultRole();
+//Output
+&amp;ldquo;Chris Evans played role of Captain America in Avengers&amp;rdquo;
+&lt;/code&gt;
+&lt;/pre&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;How ES5 did it?&lt;/p&gt;
+
+&lt;p&gt;&lt;pre&gt;
+&lt;code class=&#34;language-javascript&#34;&gt;
+function AvengersMember(actor, role) {
+    this.actor = actor;
+    this.role = role;
+}
+AvengersMember.prototype.describeRole = function(){
+  console.log(this.actor+&amp;rsquo; played role of &amp;lsquo;+this.role+&amp;rsquo; in Avengers&amp;rsquo;);
+}
+let avengerMembers = new AvengersMember(&amp;lsquo;Christian Bale&amp;rsquo;, &amp;lsquo;Batman&amp;rsquo;);
+avengerMembers.describeRole();&lt;/p&gt;
+
+&lt;p&gt;function Avengers(actor, role) {
+  Avengers.prototype.constructor(actor, role);
+}&lt;/p&gt;
+
+&lt;p&gt;Avengers.prototype = new AvengersMember();&lt;/p&gt;
+
+&lt;p&gt;let avengers = new Avengers(&amp;lsquo;Robert Downey Jr&amp;rsquo;, &amp;lsquo;Iron Man&amp;rsquo;);
+avengers.describeRole();
+&lt;/pre&gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Try it out here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jsfiddle.net/qk7vL83e/&#34;&gt;https://jsfiddle.net/qk7vL83e/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class=&#39;custom-heading&#39;&gt;Exercise:&lt;/p&gt;
+
+&lt;p&gt;Go to the following link and try to resolve all the errors in ES6 way.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/class/creation&#34;&gt;http://tddbin.com/#?kata=es6/language/class/creation&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/class/accessors&#34;&gt;http://tddbin.com/#?kata=es6/language/class/accessors&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/class/static&#34;&gt;http://tddbin.com/#?kata=es6/language/class/static&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/class/extends&#34;&gt;http://tddbin.com/#?kata=es6/language/class/extends&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/class/more-extends&#34;&gt;http://tddbin.com/#?kata=es6/language/class/more-extends&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/class/super-in-method&#34;&gt;http://tddbin.com/#?kata=es6/language/class/super-in-method&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&#34;http://tddbin.com/#?kata=es6/language/class/super-in-constructor&#34;&gt;http://tddbin.com/#?kata=es6/language/class/super-in-constructor&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

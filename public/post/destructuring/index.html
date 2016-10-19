@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16" />
+
+  <title>Destructuring &middot; ES6 Features</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="https://ecmascript2015.herokuapp.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/custom_style.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://ecmascript2015.herokuapp.com/">ES6 Features</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/">Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/arrow/">Arrow function</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/modules/">Modules</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/promises/">Promises</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/blockscoping/">Block Scoping</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/classes/">Classes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/generator/">Generator</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/templatestring/">Template Strings</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/destructuring/">Destructuring</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/spreadoperator/">Spread Operators</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Destructuring</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>02 Oct 2016, 22:36</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  <p><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script></p>
+
+<p class='custom-heading'>What is Destructuring?</p>
+The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from <highlight>arrays</highlight> or <highlight>objects</highlight> into distinct variables.
+
+There are a lot of ways in which Destructuring can be used.
+
+<p class='custom-heading'>A very basic way to use the Destructuring feature</p>
+
+<pre>
+<code class="language-javascript">
+var a,b,rest;
+[a,b] = [1,2];
+console.log(a); //1
+console.log(b); //2
+
+[a,b,...rest] = [1,2,3,4,5,6,7,8];
+console.log(a);//1
+console.log(b);//2
+console.log(rest);//[3,4,5,6,7,8]
+</code>
+</pre>
+
+<p class='custom-heading'>Explanation</p>
+
+<p>Here the variables a and b are assigned in one-line using the destructuring functionality of ecmascript2015. Unlike the previous version of ECMAScript, where the variables had to be assigned separately, this method helps achieve this in a single line of code.</p>
+
+<p>Also note the <highlight>&hellip;</highlight> allows us to assign the variable &ldquo;rest&rdquo;, the remaining values in the array.</p>
+
+<p class='custom-heading'>How ES5 did it?</p>
+
+<p>In ES5, this was done like this:</p>
+
+<pre>
+<code class="language-javascript">
+"use strict";
+
+var a, b, rest;
+a = 1;
+b = 2;
+
+console.log(a); //1
+console.log(b); //2
+
+a = 1;
+b = 2;
+rest = [3, 4, 5, 6, 7, 8];
+
+console.log(a); //1
+console.log(b); //2
+console.log(rest); //[3,4,5,6,7,8]
+</code>
+</pre>
+
+<p class='custom-heading'>Example code on Array Destructuring</p>
+Different scenarios :
+
+<p class='custom-sub-heading'>1. The basic array destructuring </p>
+<pre>
+<code class="language-javascript">
+var foo = ["one", "two", "three"];
+
+var [one, two, three] = foo;
+console.log(one); // "one"
+console.log(two); // "two"
+console.log(three); // "three"
+</code>
+</pre>
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/17/edit?js,console">https://jsbin.com/tikagup/17/edit?js,console</a>
+
+<p class="custom-sub-heading">2. Assignment separate from declaration and the <highlight>...</highlight> operation example</p>
+<pre>
+<code class="language-javascript">
+var a,b,rest;
+[a,b] = [1,2];
+console.log(a); //1
+console.log(b); //2
+
+[a,b,...rest] = [1,2,3,4,5,6,7,8];
+console.log(a);//1
+console.log(b);//2
+console.log(rest);//[3,4,5,6,7,8]
+</pre>
+</code>
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/1/edit">https://jsbin.com/tikagup/1/edit</a>
+
+<p class="custom-sub-heading">3. Default values</p>
+<p>A variable can be assigned a default, in the case that the value pulled from the array is undefined.</p>
+<pre>
+<code class="language-javascript">
+var a, b;
+
+[a=5, b=7] = [1];
+console.log(a); // 1
+console.log(b); // 7
+</code>
+</pre>
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/4/edit?js,console">https://jsbin.com/tikagup/4/edit?js,console</a>
+
+<p class="custom-sub-heading">4. Swapping variables</p>
+<p>Two variables values can be swapped in one destructuring expression. Without destructuring assignment, swapping two values requires a temporary variable.</p>
+<pre>
+<code class="language-javascript">
+var a = 1;
+var b = 3;
+
+[a, b] = [b, a];
+console.log(a); // 3
+console.log(b); // 1
+</code>
+</pre>
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/5/edit?js,console">https://jsbin.com/tikagup/5/edit?js,console</a>
+
+<p class="custom-sub-heading">5. Parsing an array returned from a function</p>
+<p>It's always been possible to return an array from a function. Destructuring can make working with an array return value more concise.
+In this example, f() returns the values [1, 2] as its output, which can be parsed in a single line with destructuring.</p>
+<pre>
+<code class="language-javascript">
+function f() {
+  return [1, 2];
+}
+
+var a, b;
+[a, b] = f();
+console.log(a); // 1
+console.log(b); // 2
+</code>
+</pre>
+
+<p>Sample Code Link:
+<a href="https://jsbin.com/tikagup/6/edit?js,console">https://jsbin.com/tikagup/6/edit?js,console</a>
+
+<p class="custom-sub-heading">6. Ignoring some returned values</p>
+<p>You can ignore return values that you're not interested in.</p>
+<pre>
+<code class="language-javascript">
+function f() {
+  return [1, 2, 3];
+}
+
+var [a, , b] = f();
+console.log(a); // 1
+console.log(b); // 3
+</code>
+</pre>
+<p>Sample Code Link:
+<a href="https://jsbin.com/tikagup/7/edit?js,console">https://jsbin.com/tikagup/7/edit?js,console</a>
+
+<p class="custom-sub-heading">7. Pulling values from a regular expression match</p>
+<p>When the regular expression exec() method finds a match, it returns an array containing first the entire matched portion of the string and then the portions of the string that matched each parenthesized group in the regular expression. Destructuring assignment allows you to pull the parts out of this array easily, ignoring the full match if it is not needed.</p>
+<pre>
+<code class="language-javascript">
+var url = "https://developer.mozilla.org/en-US/Web/JavaScript";
+
+var parsedURL = /^(\w+)\:\/\/([^\/]+)\/(.*)$/.exec(url);
+console.log(parsedURL); // ["https://developer.mozilla.org/en-US/Web/JavaScript", "https", "developer.mozilla.org", "en-US/Web/JavaScript"]
+
+var [, protocol, fullhost, fullpath] = parsedURL;
+
+console.log(protocol); // "https"
+</code>
+</pre>
+
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/8/edit?js,console">https://jsbin.com/tikagup/8/edit?js,console</a>
+
+<p class='custom-heading'>Example code on Object Destructuring</p>
+Different scenarios :
+
+<p class='custom-sub-heading'>1. Basic assignment.</p>
+<pre>
+<code class="language-javascript">
+var o = {p: 42, q: true};
+var {p, q} = o;
+
+console.log(p); // 42
+console.log(q); // true
+</code>
+</pre>
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/9/edit?js,console">https://jsbin.com/tikagup/9/edit?js,console</a>
+
+<p class="custom-sub-heading">2. Assignment without declaration.</p>
+<pre>
+<code class="language-javascript">
+var a, b;
+
+({a, b} = {a:1, b:2});
+</code>
+</pre>
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/10/edit?js,console">https://jsbin.com/tikagup/10/edit?js,console</a>
+
+<p class="custom-sub-heading">3. Assigning to new variable names</p>
+<p>A variable can be extracted from an object and assigned to a variable with a different name than the object property.</p>
+<pre>
+<code class="language-javascript">
+var o = {p: 42, q: true};
+var {p: foo, q: bar} = o;
+
+console.log(foo); // 42
+console.log(bar); // true  
+</code>
+</pre>
+
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/11/edit?js,console">https://jsbin.com/tikagup/11/edit?js,console</a>
+
+<p class="custom-sub-heading">4. Default values</p>
+<p>A variable can be assigned a default, in the case that the value pulled from the object is undefined.</p>
+<pre>
+<code class="language-javascript">
+var {a=10, b=5} = {a: 3};
+
+console.log(a); // 3
+console.log(b); // 5
+</code>
+</pre>
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/12/edit?js,console">https://jsbin.com/tikagup/12/edit?js,console</a>
+
+<p class="custom-sub-heading">5. Nested object and array destructuring.</p>
+<pre>
+<code class="language-javascript">
+var metadata = {
+    title: "Scratchpad",
+    translations: [
+       {
+        locale: "de",
+        localization_tags: [ ],
+        last_edit: "2014-04-14T08:43:37",
+        url: "/de/docs/Tools/Scratchpad",
+        title: "JavaScript-Umgebung"
+       }
+    ],
+    url: "/en-US/docs/Tools/Scratchpad"
+};
+
+var { title: englishTitle, translations: [{ title: localeTitle }] } = metadata;
+
+console.log(englishTitle); // "Scratchpad"
+console.log(localeTitle);  // "JavaScript-Umgebung"
+</code>
+</pre>
+
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/13/edit?js,console">https://jsbin.com/tikagup/13/edit?js,console</a>
+
+<p class="custom-sub-heading">6. For of iteration and destructuring.</p>
+<pre>
+<code class="language-javascript">
+var people = [
+  {
+    name: "Mike Smith",
+    family: {
+      mother: "Jane Smith",
+      father: "Harry Smith",
+      sister: "Samantha Smith"
+    },
+    age: 35
+  },
+  {
+    name: "Tom Jones",
+    family: {
+      mother: "Norah Jones",
+      father: "Richard Jones",
+      brother: "Howard Jones"
+    },
+    age: 25
+  }
+];
+
+for (var {name: n, family: { father: f } } of people) {
+  console.log("Name: " + n + ", Father: " + f);
+}
+
+// "Name: Mike Smith, Father: Harry Smith"
+// "Name: Tom Jones, Father: Richard Jones"
+</code>
+</pre>
+
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/14/edit?js,console">https://jsbin.com/tikagup/14/edit?js,console</a>
+
+<p class="custom-sub-heading">7. Pulling fields from objects passed as function parameter</p>
+<pre>
+<code class="language-javascript">
+function userId({id}) {
+  return id;
+}
+
+function whois({displayName: displayName, fullName: {firstName: name}}){
+  console.log(displayName + " is " + name);
+}
+
+var user = {
+  id: 42,
+  displayName: "jdoe",
+  fullName: {
+      firstName: "John",
+      lastName: "Doe"
+  }
+};
+
+console.log("userId: " + userId(user)); // "userId: 42"
+whois(user); // "jdoe is John"
+</code>
+</pre>
+
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/15/edit?js,console">https://jsbin.com/tikagup/15/edit?js,console</a>
+
+<p class="custom-sub-heading">8. Computed object property names and destructuring</p>
+<p>Computed property names, like on object literals, can be used with destructuring.</p>
+<pre>
+<code class="language-javascript">
+let key = "z";
+let { [key]: foo } = { z: "bar" };
+
+console.log(foo); // "bar"
+</code>
+</pre>
+
+Sample Code Link:
+<a href="https://jsbin.com/tikagup/16/edit?js,console">https://jsbin.com/tikagup/16/edit?js,console</a>
+
+<p class='custom-heading'>Exercise:</p>
+
+<p>Go to the following link and try to resolve all the errors in ES6 way.</p>
+
+<p><a href="http://tddbin.com/#?kata=es6/language/destructuring/array">http://tddbin.com/#?kata=es6/language/destructuring/array</a></p>
+
+<p><a href="http://tddbin.com/#?kata=es6/language/destructuring/string">http://tddbin.com/#?kata=es6/language/destructuring/string</a></p>
+
+<p><a href="http://tddbin.com/#?kata=es6/language/destructuring/object">http://tddbin.com/#?kata=es6/language/destructuring/object</a></p>
+
+<p><a href="http://tddbin.com/#?kata=es6/language/destructuring/defaults">http://tddbin.com/#?kata=es6/language/destructuring/defaults</a></p>
+
+<p><a href="http://tddbin.com/#?kata=es6/language/destructuring/parameters">http://tddbin.com/#?kata=es6/language/destructuring/parameters</a></p>
+
+<p><a href="http://tddbin.com/#?kata=es6/language/destructuring/rename">http://tddbin.com/#?kata=es6/language/destructuring/rename</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://ecmascript2015.herokuapp.com/post/templatestring/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://ecmascript2015.herokuapp.com/post/templatestring/">Template String</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://ecmascript2015.herokuapp.com/post/spreadoperator/">Spread Operators</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://ecmascript2015.herokuapp.com/post/spreadoperator/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://ecmascript2015.herokuapp.com/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

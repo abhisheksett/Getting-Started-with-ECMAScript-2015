@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16" />
+
+  <title>Classes &middot; ES6 Features</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="https://ecmascript2015.herokuapp.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/custom_style.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://ecmascript2015.herokuapp.com/">ES6 Features</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/">Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/arrow/">Arrow function</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/modules/">Modules</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/promises/">Promises</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/blockscoping/">Block Scoping</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/classes/">Classes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/generator/">Generator</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/templatestring/">Template Strings</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/destructuring/">Destructuring</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/spreadoperator/">Spread Operators</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Classes</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>23 Sep 2016, 11:42</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  <p><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script></p>
+
+<p class='custom-heading'>What is this?</p>
+
+<p>JavaScript classes introduced in ECMAScript 6 are syntactical sugar over JavaScript&rsquo;s existing prototype-based inheritance. The class syntax is not introducing a new object-oriented inheritance model to JavaScript. JavaScript classes provide a much simpler and clearer syntax to create objects and deal with inheritance.</p>
+
+<p>Class concept in ES6 is almost similar like classes in Python or Java. There are 2 ways we can define classes.
+<ul><highlight>Class declarations</highlight></ul>
+<ul><highlight>Class expression</highlight></ul></p>
+
+<p class='custom-sub-heading'>Class declarations</p>
+
+<p>Keyword <highlight>class</highlight> is used along with class name to declare a class. For example:
+<pre>
+<code class="language-javascript">
+class Vehicle {
+  constructor(description, wheels) {
+    this.description = description;
+    this.wheels = wheels;
+  }
+}
+</code>
+</pre>
+<div class='warning'>
+  An important difference between function declarations and class declarations is that function declarations are hoisted and class declarations are not. Class needs to be declared first and then access it, otherwise code like the following will throw a ReferenceError:
+</div></p>
+
+<pre>
+<code class="language-javascript">
+var v = new Vehicle(); // ReferenceError
+
+class Vehicle {}
+</code>
+</pre>
+
+<p class='custom-sub-heading'>Class expression</p>
+
+<p>A class expression is another way to define a class. Class expressions can be named or unnamed. The name given to a named class expression is local to the class&rsquo;s body. Example:</p>
+
+<pre>
+<code class="language-javascript">
+//unnamed
+var Vehicle = class {
+  constructor(description, wheels) {
+    this.description = description;
+    this.wheels = wheels;
+  }
+};
+</code>
+</pre>
+
+<p class='custom-heading'>How to use it?</p>
+
+<p>Before going for example, there is an important note:
+<div class='info'>
+The <b>constructor</b> method is a special method for creating and initializing an object created with a class. There can only be one special method with the name <b>&ldquo;constructor&rdquo;</b> in a class. A SyntaxError will be thrown if the class contains more than one occurrence of a constructor method.
+</div>
+Here is an complete example of class with inheritance:</p>
+
+<pre>
+<code class="language-javascript">
+class AvengersMember {
+  constructor(actor, role){
+    this.actor = actor;
+    this.role = role;
+  }
+
+  describeRole() {
+    console.log(`${this.actor} played role of ${this.role} in Avengers`);
+  }
+}
+
+let avengerMembers = new AvengersMember('Christian Bale', 'Batman');
+avengerMembers.describeRole();
+
+//Output
+"Christian Bale played role of Batman in Avengers"
+
+class Avengers extends AvengersMember{
+  constructor(actor, role){
+    super(actor, role);
+  }
+}
+
+let avengers = new Avengers('Robert Downey Jr', 'Iron Man');
+avengers.describeRole();
+
+//Output
+"Robert Downey Jr played role of Iron Man in Avengers"
+</code>
+</pre>
+
+<p class='custom-heading'>Explanation</p>
+
+<p>In above example, Avengers class is extending AvengersMember class. All the functions and variables of Avengers class are now member of
+AvengersMember class. When avengersMember.describeRole() is called, it takes the actor and role from parent class which got assigned
+as part of &lsquo;super()&rsquo; call.</p>
+
+<p class='custom-sub-heading'>Static method</p>
+
+<p>The static keyword defines a static method for a class. Static methods are called without instantiating their class and are also not callable when the class is instantiated. Static methods are often used to create utility functions for an application.</p>
+
+<p>For example:
+<pre>
+<code class="language-javascript">
+class AvengersMember {
+  constructor(actor, role){
+    this.actor = actor;
+    this.role = role;
+  }
+  describeRole() {
+    console.log(`${this.actor} played role of ${this.role} in Avengers`);
+  }
+  static defaultRole() {
+    console.log(&ldquo;Chris Evans played role of Captain America in Avengers&rdquo;);
+  }
+}
+AvengersMember.defaultRole();
+//Output
+&ldquo;Chris Evans played role of Captain America in Avengers&rdquo;
+</code>
+</pre></p>
+
+<p class='custom-heading'>How ES5 did it?</p>
+
+<p><pre>
+<code class="language-javascript">
+function AvengersMember(actor, role) {
+    this.actor = actor;
+    this.role = role;
+}
+AvengersMember.prototype.describeRole = function(){
+  console.log(this.actor+&rsquo; played role of &lsquo;+this.role+&rsquo; in Avengers&rsquo;);
+}
+let avengerMembers = new AvengersMember(&lsquo;Christian Bale&rsquo;, &lsquo;Batman&rsquo;);
+avengerMembers.describeRole();</p>
+
+<p>function Avengers(actor, role) {
+  Avengers.prototype.constructor(actor, role);
+}</p>
+
+<p>Avengers.prototype = new AvengersMember();</p>
+
+<p>let avengers = new Avengers(&lsquo;Robert Downey Jr&rsquo;, &lsquo;Iron Man&rsquo;);
+avengers.describeRole();
+</pre>
+</code></p>
+
+<p class='custom-heading'>Try it out here:</p>
+
+<p><a href="https://jsfiddle.net/qk7vL83e/">https://jsfiddle.net/qk7vL83e/</a></p>
+
+<p class='custom-heading'>Exercise:</p>
+
+<p>Go to the following link and try to resolve all the errors in ES6 way.</p>
+
+<p><a href="http://tddbin.com/#?kata=es6/language/class/creation">http://tddbin.com/#?kata=es6/language/class/creation</a> <br/>
+<a href="http://tddbin.com/#?kata=es6/language/class/accessors">http://tddbin.com/#?kata=es6/language/class/accessors</a> <br/>
+<a href="http://tddbin.com/#?kata=es6/language/class/static">http://tddbin.com/#?kata=es6/language/class/static</a> <br/>
+<a href="http://tddbin.com/#?kata=es6/language/class/extends">http://tddbin.com/#?kata=es6/language/class/extends</a> <br/>
+<a href="http://tddbin.com/#?kata=es6/language/class/more-extends">http://tddbin.com/#?kata=es6/language/class/more-extends</a> <br/>
+<a href="http://tddbin.com/#?kata=es6/language/class/super-in-method">http://tddbin.com/#?kata=es6/language/class/super-in-method</a> <br/>
+<a href="http://tddbin.com/#?kata=es6/language/class/super-in-constructor">http://tddbin.com/#?kata=es6/language/class/super-in-constructor</a> <br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://ecmascript2015.herokuapp.com/post/modules/">Modules</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://ecmascript2015.herokuapp.com/post/modules/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://ecmascript2015.herokuapp.com/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

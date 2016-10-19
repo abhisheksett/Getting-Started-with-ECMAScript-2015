@@ -149,6 +149,11 @@ function multipleRest(first, ...second, ...third) {
 	// SyntaxError: parameter after rest parameter
 }</code></pre>
 
+
+<p class='custom-heading'>Try it out here:</p>
+
+http://jsbin.com/pafoyu/13/edit?js,console
+
 <p class='custom-heading'>Exercise:</p>
 
 Go to the following link and try to resolve all the errors in ES6 way.<br>

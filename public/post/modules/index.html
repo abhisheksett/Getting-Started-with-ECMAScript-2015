@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16" />
+
+  <title>Modules &middot; ES6 Features</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="https://ecmascript2015.herokuapp.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://ecmascript2015.herokuapp.com/css/custom_style.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://ecmascript2015.herokuapp.com/">ES6 Features</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/">Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/arrow/">Arrow function</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/modules/">Modules</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/promises/">Promises</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/blockscoping/">Block Scoping</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/classes/">Classes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/generator/">Generator</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/templatestring/">Template Strings</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/destructuring/">Destructuring</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://ecmascript2015.herokuapp.com/post/spreadoperator/">Spread Operators</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Modules</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>23 Sep 2016, 11:48</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  <p><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/androidstudio.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script></p>
+
+<p class='custom-heading'>What is this?</p>
+JavaScript modules introduced in ECMAScript 6 is defined in its own file. The functions or variables defined in a module are not visible outside unless you explicitly export them. This means that you can write code in your module and only export those values which should be accessed by other parts of your app.
+
+ES6 modules are declarative in nature. To export certain variables from a module you just use the keyword  <highlight>export</highlight>. Similarly, to consume the exported variables in a different module you use  <highlight>import</highlight>.
+
+<p class='custom-sub-heading'>A Simple Module</p>
+
+<p>Let’s create a simple module that has two functions:</p>
+
+<p>difference() : Finds difference of two numbers. </br>
+sum() : Adds two numbers.
+Next, let’s create a file named utility.js for the module:</p>
+
+<p><highlight>utility.js</highlight></p>
+
+<pre>
+<code class="language-javascript">
+function diff(a,b) {
+    return a-b;
+}
+
+function sum(a, b) {
+    return a + b;
+}
+</code>
+</pre>
+
+<p>That&rsquo;s it ! The &ldquo;uitility.js&rdquo; is a module here.</p>
+
+<p class='custom-heading'>Exporting and importing module</p>
+
+<pre>
+<code class="language-javascript">
+function diff(a,b) {
+    return a-b;
+}
+
+function sum(a, b) {
+    return a + b;
+}
+
+export { diff, sum }
+
+</code>
+</pre>
+
+<p>The export keyword on the last line exports the two functions. As you can see, the exported functions are listed in curly braces separated by a comma. You can also rename the values while exporting like this:</p>
+
+<pre>
+<code class="language-javascript">
+export {diff as doDiff, sum as doSum}
+
+</code>
+</pre>
+
+<p>Now, let’s see how to consume the exported values in a different module.</p>
+
+<p><highlight>app.js</highlight></p>
+
+<p><pre>
+<code class="language-javascript">
+import { diff, sum } from &lsquo;utility&rsquo;;
+console.log(diff(18,4)); //14
+console.log(sum(1, 2)); //3
+</pre>
+</code>
+Note the first line. This imports the exported values from the module utility. If you want to import a single value (for example sum), you can do it by writing the following:
+<pre>
+<code class="language-javascript">
+import { sum } from &lsquo;utility&rsquo;;
+</pre>
+</code></p>
+
+<p>Alternatively, you can import the module as an object and access the exports via properties:</p>
+
+<p><code><pre>
+import &lsquo;utility.js&rsquo; as utilObj;
+console.log(utilObj.sum(3,5));//8
+</pre></code></p>
+
+<p>If you are unhappy with the name that an exporting module has chosen, you can rename locally:
+<code><pre>
+import { diff as Difference } from &lsquo;utility&rsquo;;
+console.log(Difference(10,7));//3
+</pre></code></p>
+
+<p class='custom-heading'>Default Exports and Re-exporting</p>
+
+<p>If you want to export a single value from the module then you can use default export. To demonstrate the usage of default exports let’s modify the utility module as shown below:</p>
+
+<p><highlight>utility.js</highlight>
+<code><pre>
+var utils = {
+  diff: function(a,b) {
+    return a-b;<br />
+  },
+  sum: function(a, b) {
+    return a + b;
+  }
+};
+export default utils;
+</pre></code></p>
+
+<p>The last line just exports the object utils. It can be consumed as following in a different module:
+<highlight>app.js</highlight>
+<code><pre>
+import utils from &lsquo;utility&rsquo;;
+console.log(utils.diff(9,5)); //4
+console.log(utils.sum(1, 2)); //3
+export default utils; //exports the imported value
+</pre></code></p>
+
+<p>The first line simply imports the utils object exported previously. Once you import a value you can also re-export it. The last line in the above code does that.</p>
+
+<p class='custom-heading'>Exercise:</p>
+
+<p>Go to the following link and try to resolve all the errors in ES6 way.</p>
+
+<p><a href="http://tddbin.com/#?">http://tddbin.com/#?</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://ecmascript2015.herokuapp.com/post/classes/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://ecmascript2015.herokuapp.com/post/classes/">Classes</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://ecmascript2015.herokuapp.com/post/promises/">Promises</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://ecmascript2015.herokuapp.com/post/promises/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://ecmascript2015.herokuapp.com/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

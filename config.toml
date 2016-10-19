@@ -65,3 +65,13 @@ canonifyurls = true
     pre = ""
     weight = 9
     url = "/post/spreadoperator/"
+  [[menu.main]]
+    name = "Constant Keywords"
+    pre = ""
+    weight = 10
+    url = "/post/constkeyword/"
+  [[menu.main]]
+    name = "Function Parameters"
+    pre = ""
+    weight = 11
+    url = "/post/functionparameter/"
