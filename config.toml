@@ -75,3 +75,8 @@ canonifyurls = true
     pre = ""
     weight = 11
     url = "/post/functionparameter/"
+  [[menu.main]]
+    name = "Objects"
+    pre = ""
+    weight = 12
+    url = "/post/objects/"
