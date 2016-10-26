@@ -80,3 +80,4 @@ canonifyurls = true
     pre = ""
     weight = 12
     url = "/post/objects/"
+ 
