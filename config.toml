@@ -80,4 +80,8 @@ canonifyurls = true
     pre = ""
     weight = 12
     url = "/post/objects/"
- 
+  [[menu.main]]
+    name = "Numbers"
+    pre = ""
+    weight = 13
+    url = "/post/numbers/"
