@@ -178,15 +178,15 @@ console.log(0.1+0.2);   //0.30000000000000004
 </code>
 </pre>
 <p class='custom-heading'>Try it out here:</p>
-  https://jsbin.com/howobu/5/edit?js,console,output <br>
-  https://jsbin.com/howobu/6/edit?js,console,output <br>
-  https://jsbin.com/howobu/7/edit?js,console,output <br>
-  https://jsbin.com/howobu/8/edit?js,console,output <br>
-  https://jsbin.com/howobu/9/edit?js,console,output <br>
-  https://jsbin.com/howobu/10/edit?js,console,output <br>
-  https://jsbin.com/howobu/11/edit?js,console,output <br>
-  https://jsbin.com/howobu/12/edit?js,console,output <br>
-  https://jsbin.com/howobu/13/edit?js,console,output
+  <a href="https://jsbin.com/howobu/5/edit?js,console,output">https://jsbin.com/howobu/5/edit?js,console,output </a><br>
+  <a href="https://jsbin.com/howobu/6/edit?js,console,output">https://jsbin.com/howobu/6/edit?js,console,output</a><br>
+  <a href="https://jsbin.com/howobu/7/edit?js,console,output">https://jsbin.com/howobu/7/edit?js,console,output</a><br>
+  <a href="https://jsbin.com/howobu/8/edit?js,console,output">https://jsbin.com/howobu/8/edit?js,console,output</a><br>
+  <a href="https://jsbin.com/howobu/9/edit?js,console,output">https://jsbin.com/howobu/9/edit?js,console,output</a><br>
+  <a href="https://jsbin.com/howobu/10/edit?js,console,output">https://jsbin.com/howobu/10/edit?js,console,output</a> <br>
+  <a href="https://jsbin.com/howobu/11/edit?js,console,output">https://jsbin.com/howobu/11/edit?js,console,output</a><br>
+  <a href="https://jsbin.com/howobu/12/edit?js,console,output">https://jsbin.com/howobu/12/edit?js,console,output</a><br>
+  <a href="https://jsbin.com/howobu/13/edit?js,console,output">https://jsbin.com/howobu/13/edit?js,console,output</a>
 
 <p class='custom-heading'>Exercise:</p>
 
