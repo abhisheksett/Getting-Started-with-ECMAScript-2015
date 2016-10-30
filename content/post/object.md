@@ -277,7 +277,7 @@ console.log(Object.getPrototypeOf(friend) === dog);     // true
 </pre>
 This code defines two base objects: person and dog. Both objects have a <highlight>getGreeting()</highlight> method that returns a string. The object friend first inherits from the person object, meaning that <highlight>getGreeting()</highlight> outputs "Hello". When the prototype becomes the dog object, <highlight>person.getGreeting()</highlight> outputs "Woof" because the original relationship to person is broken.
 
-The actual value of an object’s prototype is stored in an internal-only property called <highlight>[[Prototype]]</highlight>. The <highlight>Object.getPrototypeOf()</highlight> method returns the value stored in <highlight>[[Prototype]]</highlight> and <highlight>Object.setPrototypeOf()</highlight> changes the value stored in <highlight>[[Prototype]]</highlight>. 
+The actual value of an object’s prototype is stored in an internal-only property called <highlight>[[Prototype]]</highlight>. The <highlight>Object.getPrototypeOf()</highlight> method returns the value stored in <highlight>[[Prototype]]</highlight> and <highlight>Object.setPrototypeOf()</highlight> changes the value stored in <highlight>[[Prototype]]</highlight>.
 
 <p class='custom-sub-heading'>Easy Prototype Access with Super References</p>
 Another improvement is the introduction of <highlight>super</highlight> references, which make accessing functionality on an object’s prototype easier. For example, to override a method on an object instance such that it also calls the prototype method of the same name, you’d do the following:

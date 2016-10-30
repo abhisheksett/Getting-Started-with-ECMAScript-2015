@@ -76,12 +76,12 @@ canonifyurls = true
     weight = 11
     url = "/post/functionparameter/"
   [[menu.main]]
-    name = "Objects"
-    pre = ""
-    weight = 12
-    url = "/post/objects/"
-  [[menu.main]]
     name = "Numbers"
     pre = ""
-    weight = 13
+    weight = 12
     url = "/post/numbers/"
+  [[menu.main]]
+    name = "Objects"
+    pre = ""
+    weight = 13
+    url = "/post/object/"
