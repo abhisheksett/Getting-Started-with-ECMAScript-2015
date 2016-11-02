@@ -85,3 +85,8 @@ canonifyurls = true
     pre = ""
     weight = 13
     url = "/post/object/"
+  [[menu.main]]
+    name = "Reflect"
+    pre = ""
+    weight = 14
+    url = "/post/reflect/"
