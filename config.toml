@@ -90,3 +90,8 @@ canonifyurls = true
     pre = ""
     weight = 14
     url = "/post/reflect/"
+  [[menu.main]]
+    name = "Map"
+    pre = ""
+    weight = 15
+    url = "/post/map/"

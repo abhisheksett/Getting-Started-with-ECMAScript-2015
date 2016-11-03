@@ -11,72 +11,117 @@ title = "Template String"
 <script>hljs.initHighlightingOnLoad();</script>
 
 <p class='custom-heading'>What is this?</p>
-  Template literals are string literals allowing embedded expressions. You can use multi-line strings and string interpolation features with them.Prior to ES6 they were called "template strings".
-
- Template literals are enclosed by the back-tick (` `) (grave accent) character instead of double or single quotes. Template literals can contain place holders. These are indicated by the Dollar sign and curly braces (${expression}). The expressions in the place holders and the text between them get passed to a function.
-
- </br>
- <highlight>Multiline String </highlight>
- Any new line characters inserted in the source are part of the template literal.
- <p class='custom-heading'>How to use it?</p>
- <pre>
- <code class="language-javascript">
- console.log(`Interesting fact line 1
-   Interesting fact line 2`);
-  //Output
-  "Interesting fact line 1"
-  "Interesting fact line 2"
-  </code>
- </pre>
- <highlight>Tagged template literals</highlight>
-  Tagged template allows you to modify the output of template literals using a function. The first argument contains an array of string literals ("Hello " , " world", and "" in this example). The second, and each argument after the first one, are the values of the processed (or sometimes called cooked) substitution expressions
-  <p class='custom-heading'>How to use it?</p>
-  <pre>
-  <code class="language-javascript">
-  var a = 5;
-  var b = 10;
-
-  function tag(strings, ...values) {
-  console.log(strings[0]); // "Hello "
-  console.log(strings[1]); // " world "
-  console.log(strings[2]); // ""
-  console.log(values[0]);  // 15
-  console.log(values[1]);  // 50
-
-  return "Bazinga!";
-}
-
-tag`Hello ${ a + b } world ${ a * b }`;
-// "Bazinga!"
-  </code>
-  </pre>
-  <highlight>Raw strings</highlight>
-  The special raw property, available on the first function argument of tagged template literals, allows you to access the raw strings as they were entered.
-  <p class='custom-heading'>How to use it?</p>
-  <pre>
-  <code class="language-javascript">
-  String.raw`Hi\n${2+3}!`;
-// "Hi\n5!"
-  </code>
-  </pre>
- <p class='custom-heading'>How to use it?</p>
-
-<p class='custom-heading'>Explanation</p>
-
-<p class='custom-heading'>How ES5 did it?</p>
+ECMAScript 6 comes with the new template strings feature. Among other wonders, a template string directly supports multiline strings: 
 <pre>
-<code class="language-javascript">
-console.log("string text line 1\n"+
-"string text line 2");
-// "string text line 1
-// string text line 2"
+<code class="language-javascript">var myTooLongString = `A long time ago, in a galaxy far
+ far away....
+ It is a period of civil war.
+ Rebel spaceships, striking
+ from a hidden base, have won
+ their first victory against
+ the evil Galactic Empire`;
 </code>
 </pre>
+Because all characters are significant inside a template string, I cannot add leading whitespaces.Now as JavaScript developers we have 3 ways to define strings:<br>
+<highlight>With ""</highlight>
+<highlight>With ''</highlight>
+<highlight>With ``</highlight><br>
+Multiline support is not the only feature of template strings. Indeed, you can also use a template strings to substitute placeholders with variables values . 
+<pre>
+<code class="language-javascript">var items = [];
+items.push("banana");
+items.push("tomato");
+items.push("light saber");
+var total = 100.5;
+result.innerHTML = `You have ${items.length} item(s) in your basket for a total of $${total}`; //You have 3 item(s) in your basket for a total of $100.5
+</code>
+</pre>
+<p class='custom-sub-heading'>Going Further with Tags</p>
+The final stage of template strings specification is about adding a custom function before the string itself to create a tagged template string:
+<pre>
+<code class="language-javascript">var items = [];
+items.push("banana");
+items.push("tomato");
+items.push("light saber");
+var total = 100.5;
+var myFunction = function (strings,...values) {
+  var output = "";
+  for (var index = 0; index < values.length; index++) {
+    output += strings[index] + values[index];
+  }
+  output += strings[index]
+  return output;
+}
 
+result.innerHTML = myFunction `You have ${items.length} item(s) in your basket for a total of $${total}`; //You have 3 item(s) in your basket for a total of $100.5
+</code>
+</pre>
+The function here is used to get access to both the constant string part as well as the evaluated variables values.
 
+In the previous example, strings and values are the following:<br>
+<highlight>strings[0] = "You have "</highlight><br>
+<highlight>values[0] = 3</highlight><br>
+<highlight>strings[1] = "items in your basket for a total of $"</highlight><br>
+<highlight>values[1] = 100.5</highlight><br>
+<highlight>strings[2] = ""</highlight><br>
+As you can see, every <highlight>values[n]</highlight> is surrounded by constants strings <highlight>(strings[n]</highlight> and <highlight>strings[n + 1])</highlight>.
+<pre>
+<code class="language-javascript">
+var items = [];
+items.push("banana");
+items.push("tomato");
+items.push("light saber");
+var total = "Trying to hijack your site <BR>";
+var myTagFunction = function (strings,...values) {
+  var output = "";
+  for (var index = 0; index < values.length; index++) {
+    var valueString = values[index].toString();
+
+    if (valueString.indexOf(">") !== -1) {
+      // Far more complex tests can be implemented here :)
+      return "String analyzed and refused!";
+    }
+
+    output += strings[index] + values[index];
+  }
+
+  output += strings[index]
+  return output;
+}
+
+result.innerHTML = myTagFunction `You have ${items.length} item(s) in your basket for a total of $${total}`;
+</code>
+</pre>
+Tagged template strings can used for a lot of things like security, localization, creating your own domain specific language, etc.
+
+<p class='custom-sub-heading'>Raw Strings</p>
+Tag functions have a special option when accessing string constants: They can use <highlight>strings.raw</highlight> to get the unescaped string values. For instance, in this case <highlight>\n</highlight> will not be seen as only one character but actually two <highlight>\</highlight> and <highlight>n</highlight>.
+The main goal is to allow you to access the string as it was entered:
+<pre>
+<code class="language-javascript">
+
+var myRawFunction = function (strings,...values) {
+  var output = "";
+  for (var index = 0; index < values.length; index++) {
+    output += strings.raw[index] + values[index];
+  }
+  output += strings.raw[index]
+  console.log(strings.length, values.length);
+  return output;
+}
+
+result.innerHTML = myRawFunction `You have ${items.length} item(s) in your basket\n.For a total of $${total}`; //You have 3 item(s) in your basket\n.For a total of $100.5
+</code>
+</pre>
+You can also use a new function of String: <highlight>String.raw()</highlight>. This function is a built-in function that does exactly what my previous example does:
+<pre>
+<code class="language-javascript">
+result.innerHTML = String.raw `You have ${items.length} item(s) in your basket\n.For a total of $${total}`; //You have 3 item(s) in your basket\n.For a total of $100.5
+</code>
+</pre>
 <p class='custom-heading'>Try it out here:</p>
 
-https://jsfiddle.net/vznt1dya/
+https://jsbin.com/zirama/2/edit?html,js,console,output
 
 <p class='custom-heading'>Exercise:</p>
 Go to the following link and try to resolve all the errors in ES6 way.
