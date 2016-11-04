@@ -94,4 +94,4 @@ canonifyurls = true
     name = "Map"
     pre = ""
     weight = 15
-    url = "/post/map/"
+    url = "/post/maps/"
