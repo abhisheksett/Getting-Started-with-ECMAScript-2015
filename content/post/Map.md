@@ -26,7 +26,7 @@ new Map([iterable])
 
 Iterable is an Array or other iterable object whose elements are key-value pairs (2-element Arrays). Each key-value pair is added to the new Map. null is treated as undefined.
 A Map object iterates its elements in insertion order — a for...of loop returns an array of [key, value] for each iteration.
-It should be noted that a Map that is a map of an object, especially a dictionary of dictionaries, will only map to the object's insertion order -- which is random and not ordered. 
+It should be noted that a Map that is a map of an object, especially a dictionary of dictionaries, will only map to the object's insertion order -- which is random and not ordered.
 
 <p class='custom-sub-heading'>Properties</p>
 <highlight>Map.length</highlight>
@@ -58,12 +58,12 @@ All Map instances inherit from <highlight>Map.prototype</highlight>.
 var myMap = new Map();
 var keyString = "a string",
     keyObj = {},
-    keyFunc = function () {}; 
+    keyFunc = function () {};
 // setting the values
 myMap.set(keyString, "value associated with 'a string'");
 myMap.set(keyObj, "value associated with keyObj");
 myMap.set(keyFunc, "value associated with keyFunc");
-console.log(myMap.size); // 3 
+console.log(myMap.size); // 3
 // getting the values
 myMap.get(keyString);    // "value associated with 'a string'"
 myMap.get(keyObj);       // "value associated with keyObj"
