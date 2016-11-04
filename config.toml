@@ -35,11 +35,7 @@ canonifyurls = true
     weight = 3
     identifier = "Promises"
     url = "/post/Promises/"
-  [[menu.main]]
-    name = "Block Scoping"
-    pre = ""
-    weight = 4
-    url = "/post/blockScoping/"
+  
   [[menu.main]]
     name = "Classes"
     pre = ""
@@ -95,3 +91,8 @@ canonifyurls = true
     pre = ""
     weight = 15
     url = "/post/map/"
+  [[menu.main]]
+    name = "Block Scoping"
+    pre = ""
+    weight = 16
+    url = "/post/blockScoping/"
